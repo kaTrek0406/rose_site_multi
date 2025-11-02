@@ -3,6 +3,7 @@ import './Header.css';
 import facebookIcon from '../../assets/social/facebook.svg';
 import instagramIcon from '../../assets/social/instagram.svg';
 import linkedinIcon from '../../assets/social/linkedin.svg';
+import languageIcon from '../../assets/icons/language.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,7 +21,7 @@ const Header = () => {
       <div className="header-container">
         <div className="logo">
           <span className="logo-text">RU</span>
-          <span className="logo-icon">📞</span>
+          <img src={languageIcon} alt="Language" className="logo-icon" />
         </div>
 
         <button className="burger-menu" onClick={toggleMenu} aria-label="Toggle menu">
