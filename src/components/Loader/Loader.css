@@ -1,0 +1,366 @@
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #fff 0%, #ffe5f0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  overflow: hidden;
+  animation: loaderFadeIn 0.5s ease;
+}
+
+.loader-container.loader-exit {
+  animation: loaderFadeOut 0.8s ease forwards;
+}
+
+@keyframes loaderFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes loaderFadeOut {
+  to {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+}
+
+.loader-bg-gradient {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
+  animation: rotateGradient 10s linear infinite;
+}
+
+@keyframes rotateGradient {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  z-index: 10;
+}
+
+/* Particles */
+.loader-particles {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.loader-particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(135deg, #ec4899, #db2777);
+  border-radius: 50%;
+  animation: particlePulse 2s ease-in-out infinite;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes particlePulse {
+  0%, 100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Logo */
+.loader-logo {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.loader-logo-inner {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ec4899, #db2777);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 60px rgba(236, 72, 153, 0.4);
+  position: relative;
+  z-index: 2;
+  animation: logoScale 2s ease-in-out infinite;
+}
+
+@keyframes logoScale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.loader-logo-text {
+  font-size: 2rem;
+  font-weight: 900;
+  color: white;
+  letter-spacing: 3px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Circle Progress */
+.loader-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.loader-circle-bg {
+  fill: none;
+  stroke: rgba(236, 72, 153, 0.1);
+  stroke-width: 3;
+}
+
+.loader-circle-progress {
+  fill: none;
+  stroke: url(#progressGradient);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 283;
+  transition: stroke-dashoffset 0.3s ease;
+  filter: drop-shadow(0 0 10px rgba(236, 72, 153, 0.5));
+}
+
+/* Progress */
+.loader-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 280px;
+}
+
+.loader-percentage {
+  font-size: 3rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ec4899, #db2777);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: percentagePulse 1.5s ease-in-out infinite;
+}
+
+@keyframes percentagePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.loader-bar-container {
+  width: 100%;
+  height: 6px;
+  background: rgba(236, 72, 153, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.loader-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #ec4899, #db2777, #ec4899);
+  background-size: 200% 100%;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+  animation: barShimmer 2s linear infinite;
+  box-shadow: 0 0 20px rgba(236, 72, 153, 0.6);
+}
+
+@keyframes barShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Loading Text */
+.loader-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.loader-dots {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.loader-dots span {
+  animation: dotBounce 1.4s ease-in-out infinite;
+}
+
+.loader-dots span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.loader-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loader-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes dotBounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  30% {
+    transform: translateY(-10px);
+    opacity: 0.7;
+  }
+}
+
+/* Add gradient definition for SVG */
+.loader-circle::before {
+  content: '';
+  position: absolute;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .loader-particles {
+    width: 300px;
+    height: 300px;
+  }
+
+  .loader-particle {
+    width: 6px;
+    height: 6px;
+  }
+
+  .loader-logo {
+    width: 160px;
+    height: 160px;
+  }
+
+  .loader-logo-inner {
+    width: 110px;
+    height: 110px;
+  }
+
+  .loader-logo-text {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+
+  .loader-percentage {
+    font-size: 2.5rem;
+  }
+
+  .loader-progress {
+    width: 220px;
+  }
+
+  .loader-text {
+    font-size: 1rem;
+  }
+
+  .loader-content {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .loader-particles {
+    width: 250px;
+    height: 250px;
+  }
+
+  .loader-particle {
+    width: 4px;
+    height: 4px;
+  }
+
+  .loader-logo {
+    width: 140px;
+    height: 140px;
+  }
+
+  .loader-logo-inner {
+    width: 90px;
+    height: 90px;
+  }
+
+  .loader-logo-text {
+    font-size: 1.2rem;
+    letter-spacing: 1.5px;
+  }
+
+  .loader-percentage {
+    font-size: 2rem;
+  }
+
+  .loader-progress {
+    width: 180px;
+  }
+
+  .loader-bar-container {
+    height: 5px;
+  }
+
+  .loader-text {
+    font-size: 0.9rem;
+  }
+
+  .loader-content {
+    gap: 1.5rem;
+  }
+}
