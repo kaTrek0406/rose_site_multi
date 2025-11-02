@@ -1,3 +1,4 @@
+import { useLanguage } from '../../contexts/LanguageContext';
 import './Services.css';
 
 // Import service icons
@@ -9,52 +10,54 @@ import videoIcon from '../../assets/services/video.png';
 import ilustrationIcon from '../../assets/services/ilustration.png';
 
 const Services = () => {
+  const { t } = useLanguage();
+
   const services = [
     {
       icon: smmIcon,
-      title: 'SMM',
-      description: 'Nisl montes dui hendrerit fames molestie ante vel ac nulla sodales ridiculus consequat.'
+      titleKey: 'services.smm.title',
+      descriptionKey: 'services.smm.description'
     },
     {
       icon: designIcon,
-      title: 'ДИЗАЙН',
-      description: 'Nisl montes dui hendrerit fames molestie ante vel ac nulla sodales ridiculus consequat.'
+      titleKey: 'services.design.title',
+      descriptionKey: 'services.design.description'
     },
     {
       icon: photoIcon,
-      title: 'ФОТОСЪЕМКА',
-      description: 'Nisl montes dui hendrerit fames molestie ante vel ac nulla sodales ridiculus consequat.'
+      titleKey: 'services.photo.title',
+      descriptionKey: 'services.photo.description'
     },
     {
       icon: targetIcon,
-      title: 'ТАРГЕТ',
-      description: 'Nisl montes dui hendrerit fames molestie ante vel ac nulla sodales ridiculus consequat.'
+      titleKey: 'services.target.title',
+      descriptionKey: 'services.target.description'
     },
     {
       icon: videoIcon,
-      title: 'ВИДЕОСЪЕМКА',
-      description: 'Nisl montes dui hendrerit fames molestie ante vel ac nulla sodales ridiculus consequat.'
+      titleKey: 'services.video.title',
+      descriptionKey: 'services.video.description'
     },
     {
       icon: ilustrationIcon,
-      title: 'ИЛЛЮСТРАЦИИ',
-      description: 'Nisl montes dui hendrerit fames molestie ante vel ac nulla sodales ridiculus consequat.'
+      titleKey: 'services.illustration.title',
+      descriptionKey: 'services.illustration.description'
     }
   ];
 
   return (
     <section className="services" id="services">
       <div className="services-container">
-        <h2 className="services-title">УСЛУГИ</h2>
+        <h2 className="services-title">{t('services.title')}</h2>
         <div className="services-grid">
           {services.map((service, index) => (
             <div key={index} className="service-card">
               <div className="service-icon">
-                <img src={service.icon} alt={service.title} className="service-icon-image" />
+                <img src={service.icon} alt={t(service.titleKey)} className="service-icon-image" />
               </div>
               <div className="service-content">
-                <h3 className="service-title">{service.title}</h3>
-                <p className="service-description">{service.description}</p>
+                <h3 className="service-title">{t(service.titleKey)}</h3>
+                <p className="service-description">{t(service.descriptionKey)}</p>
               </div>
             </div>
           ))}

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLanguage } from '../../contexts/LanguageContext';
 import './Header.css';
 import facebookIcon from '../../assets/social/facebook.svg';
 import instagramIcon from '../../assets/social/instagram.svg';
@@ -7,6 +8,7 @@ import languageIcon from '../../assets/icons/language.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { language, toggleLanguage, t } = useLanguage();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -19,8 +21,8 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-container">
-        <div className="logo">
-          <span className="logo-text">RU</span>
+        <div className="logo" onClick={toggleLanguage}>
+          <span className="logo-text">{language === 'ru' ? 'RU' : 'RO'}</span>
           <img src={languageIcon} alt="Language" className="logo-icon" />
         </div>
 
@@ -32,11 +34,11 @@ const Header = () => {
 
         <div className="nav-wrapper">
           <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
-            <a href="#home" className="nav-link" onClick={closeMenu}>Главная</a>
-            <a href="#services" className="nav-link" onClick={closeMenu}>Услуги</a>
-            <a href="#portfolio" className="nav-link" onClick={closeMenu}>Портфолио</a>
-            <a href="#clients" className="nav-link" onClick={closeMenu}>Клиенты</a>
-            <a href="#contact" className="nav-link" onClick={closeMenu}>Контакты</a>
+            <a href="#home" className="nav-link" onClick={closeMenu}>{t('header.nav.home')}</a>
+            <a href="#services" className="nav-link" onClick={closeMenu}>{t('header.nav.services')}</a>
+            <a href="#portfolio" className="nav-link" onClick={closeMenu}>{t('header.nav.portfolio')}</a>
+            <a href="#clients" className="nav-link" onClick={closeMenu}>{t('header.nav.clients')}</a>
+            <a href="#contact" className="nav-link" onClick={closeMenu}>{t('header.nav.contact')}</a>
 
             <div className="social-links-mobile">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">

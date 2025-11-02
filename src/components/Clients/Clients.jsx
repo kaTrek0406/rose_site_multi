@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLanguage } from '../../contexts/LanguageContext';
 import './Clients.css';
 
 // Import client logos (SVG для идеального качества)
@@ -10,49 +11,50 @@ import golbanTradeLogo from '../../assets/clients/golban trade.svg';
 import getmancarLogo from '../../assets/clients/getmancarr.svg';
 
 const Clients = () => {
+  const { t } = useLanguage();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   const testimonials = [
     {
-      name: 'EVELYN CARTER',
-      position: 'SEO',
-      company: 'CD Home',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      name: t('clients.testimonial0.name'),
+      position: t('clients.testimonial0.position'),
+      company: t('clients.testimonial0.company'),
+      text: t('clients.testimonial0.text'),
       clientIndex: 0
     },
     {
-      name: 'MICHAEL JOHNSON',
-      position: 'Marketing Director',
-      company: 'Colina Verde',
-      text: 'Работа с агентством Rose была превосходной! Они создали потрясающую рекламную кампанию для нашего жилого комплекса. Продажи выросли на 40% за первые 3 месяца. Рекомендую!',
+      name: t('clients.testimonial1.name'),
+      position: t('clients.testimonial1.position'),
+      company: t('clients.testimonial1.company'),
+      text: t('clients.testimonial1.text'),
       clientIndex: 1
     },
     {
-      name: 'SOFIA MARTINEZ',
-      position: 'Brand Manager',
-      company: 'Joma',
-      text: 'Креативная команда, которая действительно понимает наш бренд. Фотосессия и рекламная кампания получились именно такими, как мы хотели. Очень довольны результатом!',
+      name: t('clients.testimonial2.name'),
+      position: t('clients.testimonial2.position'),
+      company: t('clients.testimonial2.company'),
+      text: t('clients.testimonial2.text'),
       clientIndex: 2
     },
     {
-      name: 'ANNA POPESCU',
-      position: 'CEO',
-      company: 'Epil Bar',
-      text: 'Rose помогли нам создать яркий и запоминающийся образ для нашей студии. Разработка фирменного стиля и дизайн интерьера превзошли все ожидания. Спасибо за профессионализм!',
+      name: t('clients.testimonial3.name'),
+      position: t('clients.testimonial3.position'),
+      company: t('clients.testimonial3.company'),
+      text: t('clients.testimonial3.text'),
       clientIndex: 3
     },
     {
-      name: 'DMITRI GOLBAN',
-      position: 'Director',
-      company: 'Golban Trade',
-      text: 'Отличная работа по брендингу и маркетингу! Команда Rose реализовала проект в сжатые сроки и с высоким качеством. Наш бизнес получил мощный импульс для развития.',
+      name: t('clients.testimonial4.name'),
+      position: t('clients.testimonial4.position'),
+      company: t('clients.testimonial4.company'),
+      text: t('clients.testimonial4.text'),
       clientIndex: 4
     },
     {
-      name: 'ALEX GETMAN',
-      position: 'Owner',
-      company: 'Getmancar',
-      text: 'Комплексное продвижение автосервиса было выполнено на высшем уровне. Сайт, соцсети, таргетированная реклама - все работает отлично. Узнаваемость бренда значительно выросла!',
+      name: t('clients.testimonial5.name'),
+      position: t('clients.testimonial5.position'),
+      company: t('clients.testimonial5.company'),
+      text: t('clients.testimonial5.text'),
       clientIndex: 5
     }
   ];
@@ -83,7 +85,7 @@ const Clients = () => {
   return (
     <section className="clients" id="clients">
       <div className="clients-container">
-        <h2 className="clients-title">КЛИЕНТЫ И ОТЗЫВЫ</h2>
+        <h2 className="clients-title">{t('clients.title')}</h2>
 
         <div className="clients-content">
           {/* Левая часть - Отзыв */}

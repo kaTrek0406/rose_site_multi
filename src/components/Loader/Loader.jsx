@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import { useLanguage } from '../../contexts/LanguageContext';
 import './Loader.css';
 
 const Loader = ({ onLoadingComplete }) => {
+  const { t } = useLanguage();
   const [progress, setProgress] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
 
@@ -45,7 +47,7 @@ const Loader = ({ onLoadingComplete }) => {
         {/* Main logo circle */}
         <div className="loader-logo">
           <div className="loader-logo-inner">
-            <span className="loader-logo-text">ROSÉ</span>
+            <span className="loader-logo-text">{t('loader.logo')}</span>
           </div>
           <svg className="loader-circle" viewBox="0 0 100 100">
             <circle
@@ -79,7 +81,7 @@ const Loader = ({ onLoadingComplete }) => {
 
         {/* Loading text */}
         <div className="loader-text">
-          <span className="loader-text-word">Загрузка</span>
+          <span className="loader-text-word">{t('loader.text')}</span>
           <span className="loader-dots">
             <span>.</span>
             <span>.</span>

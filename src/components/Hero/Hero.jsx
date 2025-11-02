@@ -1,11 +1,20 @@
 import { useState, useEffect } from 'react';
+import { useLanguage } from '../../contexts/LanguageContext';
+import { sendToTelegram } from '../../services/telegramService';
 import './Hero.css';
 import roseLogo from '../../assets/logo/rose-logo.png';
 
 const Hero = () => {
+  const { t } = useLanguage();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [showModal, setShowModal] = useState(false);
   const [hasShownModal, setHasShownModal] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    message: ''
+  });
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -60,6 +69,42 @@ const Hero = () => {
 
   const closeModal = () => {
     setShowModal(false);
+    setFormData({
+      name: '',
+      phone: '',
+      email: '',
+      message: ''
+    });
+  };
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const telegramData = {
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email || '-',
+      message: formData.message || '-',
+      source: 'Всплывающая форма (через 2 минуты после клика)',
+      plan: null
+    };
+
+    const result = await sendToTelegram(telegramData);
+
+    if (result.success) {
+      alert(t('hero.modal.success_message'));
+      closeModal();
+    } else {
+      alert(t('hero.modal.error_message'));
+    }
   };
 
   return (
@@ -87,12 +132,13 @@ const Hero = () => {
         <div className="hero-logo">
           <img src={roseLogo} alt="ROSÉ Logo" className="hero-logo-image" />
         </div>
-        <h2 className="hero-title">МЫ САМЫЕ СКРОМНЫЕ</h2>
+        <h2 className="hero-title">{t('hero.title')}</h2>
         <p className="hero-subtitle">
-          Создаём всё, от логотипов до масштабных<br />
-          рекламных кампаний
+          {t('hero.subtitle').split('\n').map((line, i) => (
+            <span key={i}>{line}{i === 0 && <br />}</span>
+          ))}
         </p>
-        <button className="hero-cta" onClick={scrollToPortfolio}>Начать проект</button>
+        <button className="hero-cta" onClick={scrollToPortfolio}>{t('hero.cta_button')}</button>
         <div className="scroll-indicator">
           <span className="scroll-arrow">▼</span>
         </div>
@@ -103,22 +149,48 @@ const Hero = () => {
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" onClick={closeModal}>×</button>
-            <h2 className="modal-title">Начнем ваш проект?</h2>
-            <p className="modal-subtitle">Оставьте заявку и мы свяжемся с вами в течение 24 часов</p>
-            <form className="modal-form">
+            <h2 className="modal-title">{t('hero.modal.title')}</h2>
+            <p className="modal-subtitle">{t('hero.modal.subtitle')}</p>
+            <form className="modal-form" onSubmit={handleSubmit}>
               <div className="modal-form-group">
-                <input type="text" placeholder="Ваше имя" required />
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  placeholder={t('hero.modal.name_placeholder')}
+                  required
+                />
               </div>
               <div className="modal-form-group">
-                <input type="tel" placeholder="Телефон" required />
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  placeholder={t('hero.modal.phone_placeholder')}
+                  required
+                />
               </div>
               <div className="modal-form-group">
-                <input type="email" placeholder="Email" required />
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  placeholder={t('hero.modal.email_placeholder')}
+                />
               </div>
               <div className="modal-form-group">
-                <textarea placeholder="Расскажите о вашем проекте" rows="4"></textarea>
+                <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  placeholder={t('hero.modal.message_placeholder')}
+                  rows="4"
+                ></textarea>
               </div>
-              <button type="submit" className="modal-submit">Отправить заявку</button>
+              <button type="submit" className="modal-submit">{t('hero.modal.submit_button')}</button>
             </form>
           </div>
         </div>
