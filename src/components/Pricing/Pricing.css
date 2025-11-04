@@ -45,7 +45,7 @@
 
 /* Card */
 .pricing-card {
-  background: rgba(255, 255, 255, 0.9);
+  background: #ffffff;
   backdrop-filter: blur(20px);
   border-radius: 25px;
   padding: 2rem 1.8rem;
@@ -145,6 +145,8 @@
 .pricing-card-header {
   text-align: center;
   margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .pricing-icon-wrapper {
@@ -212,6 +214,7 @@
   text-align: center;
   margin: 1.5rem 0;
   position: relative;
+  z-index: 1;
 }
 
 .pricing-price {
@@ -263,6 +266,8 @@
   list-style: none;
   padding: 0;
   margin: 1.5rem 0 1.8rem;
+  position: relative;
+  z-index: 1;
 }
 
 .pricing-feature {
@@ -316,6 +321,7 @@
   gap: 0.5rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+  z-index: 1;
 }
 
 .pricing-button::before {
@@ -348,18 +354,23 @@
   transform: translateX(5px);
 }
 
-/* Card Glow - розовый градиент появляется только при hover */
+/* Card Glow - розовый градиент появляется только при hover ВНУТРИ карточки */
 .card-glow {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(236, 72, 153, 0.08) 0%, rgba(219, 39, 119, 0.05) 50%, transparent 100%);
+  background: linear-gradient(135deg,
+    rgba(236, 72, 153, 0.12) 0%,
+    rgba(219, 39, 119, 0.08) 30%,
+    rgba(236, 72, 153, 0.05) 60%,
+    transparent 100%);
   opacity: 0;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.6s ease;
   pointer-events: none;
   border-radius: 25px;
+  z-index: 0;
 }
 
 .pricing-card:hover .card-glow,
