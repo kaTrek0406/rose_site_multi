@@ -193,13 +193,6 @@ const Pricing = () => {
         </div>
       </div>
 
-      {/* Animated background elements */}
-      <div className="pricing-bg-elements">
-        <div className="bg-circle bg-circle-1"></div>
-        <div className="bg-circle bg-circle-2"></div>
-        <div className="bg-circle bg-circle-3"></div>
-      </div>
-
       {/* Modal Form */}
       {showModal && selectedPlan && (
         <div className="pricing-modal-overlay" onClick={handleCloseModal}>
