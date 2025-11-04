@@ -9,6 +9,7 @@ import Clients from './components/Clients/Clients';
 import ContactForm from './components/ContactForm/ContactForm';
 import Footer from './components/Footer/Footer';
 import Loader from './components/Loader/Loader';
+import CookieConsent from './components/CookieConsent/CookieConsent';
 import './App.css';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Clients />
         <ContactForm />
         <Footer />
+        <CookieConsent />
       </div>
     </LanguageProvider>
   );

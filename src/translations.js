@@ -192,7 +192,13 @@ export const translations = {
 
     // Loader
     'loader.text': 'Загрузка',
-    'loader.logo': 'ROSÉ'
+    'loader.logo': 'ROSÉ',
+
+    // Cookie Consent
+    'cookies.title': 'Мы используем cookies',
+    'cookies.description': 'Мы используем файлы cookie для улучшения работы сайта, персонализации контента и рекламы. Продолжая использовать сайт, вы соглашаетесь с использованием cookies.',
+    'cookies.accept': 'Принять',
+    'cookies.decline': 'Отклонить'
   },
 
   ro: {
@@ -388,6 +394,12 @@ export const translations = {
 
     // Loader
     'loader.text': 'Încărcare',
-    'loader.logo': 'ROSÉ'
+    'loader.logo': 'ROSÉ',
+
+    // Cookie Consent
+    'cookies.title': 'Folosim cookie-uri',
+    'cookies.description': 'Folosim cookie-uri pentru a îmbunătăți funcționarea site-ului, personalizarea conținutului și publicitatea. Continuând să utilizați site-ul, sunteți de acord cu utilizarea cookie-urilor.',
+    'cookies.accept': 'Accept',
+    'cookies.decline': 'Refuz'
   }
 };
