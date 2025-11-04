@@ -41,11 +41,11 @@ const Header = () => {
             <a href="#contact" className="nav-link" onClick={closeMenu}>{t('header.nav.contact')}</a>
 
             <div className="social-links-mobile">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
-                <img src={facebookIcon} alt="Facebook" className="social-icon" />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
+              <a href="https://www.instagram.com/rose__creative/?utm_medium=copy_link" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
                 <img src={instagramIcon} alt="Instagram" className="social-icon" />
+              </a>
+              <a href="https://www.facebook.com/RoseCreativeTeam" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
+                <img src={facebookIcon} alt="Facebook" className="social-icon" />
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
                 <img src={linkedinIcon} alt="LinkedIn" className="social-icon" />
@@ -54,11 +54,11 @@ const Header = () => {
           </nav>
 
           <div className="social-links social-links-desktop">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
-              <img src={facebookIcon} alt="Facebook" className="social-icon" />
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
+            <a href="https://www.instagram.com/rose__creative/?utm_medium=copy_link" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
               <img src={instagramIcon} alt="Instagram" className="social-icon" />
+            </a>
+            <a href="https://www.facebook.com/RoseCreativeTeam" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
+              <img src={facebookIcon} alt="Facebook" className="social-icon" />
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
               <img src={linkedinIcon} alt="LinkedIn" className="social-icon" />
