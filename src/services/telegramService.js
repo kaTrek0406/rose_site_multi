@@ -1,5 +1,5 @@
 const TELEGRAM_BOT_TOKEN = '7462661833:AAEJiMlrsJtzgU3nN2JBdQD0wLzeGNaXyko';
-const TELEGRAM_CHAT_IDS = ['709195195', '401439647', '758348467']; // Список chat_id для получения сообщений
+const TELEGRAM_CHAT_IDS = ['709195195', '401439647', '758348467', '807422319']; // Список chat_id для получения сообщений
 
 export const sendToTelegram = async (formData) => {
   const { name, phone, email, message, source, plan } = formData;
