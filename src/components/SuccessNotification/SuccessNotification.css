@@ -39,8 +39,8 @@
   stroke-width: 3;
   stroke: #4CAF50;
   stroke-miterlimit: 10;
-  box-shadow: inset 0px 0px 0px #4CAF50;
-  animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+  box-shadow: none;
+  animation: scale 0.3s ease-in-out 0.9s both;
 }
 
 .checkmark-circle {
@@ -130,12 +130,6 @@
   }
   50% {
     transform: scale3d(1.1, 1.1, 1);
-  }
-}
-
-@keyframes fill {
-  100% {
-    box-shadow: inset 0px 0px 0px 30px #4CAF50;
   }
 }
 
