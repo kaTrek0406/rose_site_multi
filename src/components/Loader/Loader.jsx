@@ -7,16 +7,29 @@ const Loader = ({ onLoadingComplete }) => {
   const [progress, setProgress] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
 
+  const services = [
+    t('services.smm.title'),
+    t('services.design.title'),
+    t('services.photo.title'),
+    t('services.target.title'),
+    t('services.video.title'),
+    t('services.illustration.title')
+  ];
+
   useEffect(() => {
     // Simulate loading progress
     const interval = setInterval(() => {
       setProgress(prev => {
+        // Start exit animation at 85%
+        if (prev >= 85 && !isExiting) {
+          setIsExiting(true);
+        }
+
         if (prev >= 100) {
           clearInterval(interval);
-          setIsExiting(true);
           setTimeout(() => {
             onLoadingComplete();
-          }, 800); // Wait for exit animation
+          }, 1000); // Wait for exit animation
           return 100;
         }
         return prev + Math.random() * 15;
@@ -24,69 +37,63 @@ const Loader = ({ onLoadingComplete }) => {
     }, 150);
 
     return () => clearInterval(interval);
-  }, [onLoadingComplete]);
+  }, [onLoadingComplete, isExiting]);
 
   return (
     <div className={`loader-container ${isExiting ? 'loader-exit' : ''}`}>
       <div className="loader-content">
-        {/* Animated logo particles */}
-        <div className="loader-particles">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="loader-particle"
-              style={{
-                left: `${50 + Math.cos(i * 18 * Math.PI / 180) * 40}%`,
-                top: `${50 + Math.sin(i * 18 * Math.PI / 180) * 40}%`,
-                animationDelay: `${i * 0.1}s`
-              }}
-            ></div>
-          ))}
-        </div>
-
         {/* Main logo circle */}
         <div className="loader-logo">
           <div className="loader-logo-inner">
             <span className="loader-logo-text">{t('loader.logo')}</span>
           </div>
-          <svg className="loader-circle" viewBox="0 0 100 100">
-            <circle
-              className="loader-circle-bg"
-              cx="50"
-              cy="50"
-              r="45"
-            />
-            <circle
-              className="loader-circle-progress"
-              cx="50"
-              cy="50"
-              r="45"
-              style={{
-                strokeDashoffset: 283 - (283 * progress) / 100
-              }}
-            />
-          </svg>
+
+          {/* Small dots around logo */}
+          <div className="loader-dots-ring">
+            {[...Array(12)].map((_, i) => (
+              <div
+                key={i}
+                className="loader-small-dot"
+                style={{
+                  transform: `rotate(${i * 30}deg) translateY(-100px)`,
+                  animationDelay: `${i * 0.08}s`
+                }}
+              ></div>
+            ))}
+          </div>
         </div>
 
-        {/* Progress percentage */}
+        {/* Progress bar */}
         <div className="loader-progress">
-          <span className="loader-percentage">{Math.round(progress)}%</span>
           <div className="loader-bar-container">
             <div
               className="loader-bar"
               style={{ width: `${progress}%` }}
             ></div>
           </div>
+          <span className="loader-percentage">{Math.round(progress)}%</span>
         </div>
 
-        {/* Loading text */}
-        <div className="loader-text">
-          <span className="loader-text-word">{t('loader.text')}</span>
-          <span className="loader-dots">
-            <span>.</span>
-            <span>.</span>
-            <span>.</span>
-          </span>
+        {/* Services in semicircle arc at top */}
+        <div className="loader-services-orbit">
+          {services.map((service, index) => {
+            // Spread services across 180 degrees arc at the top (-90° to 90°)
+            const angle = -90 + (index * 36); // 6 services: -90, -54, -18, 18, 54, 90
+            return (
+              <div
+                key={index}
+                className="loader-service-item"
+                style={{
+                  '--rotation': `${angle}deg`,
+                  '--appear-delay': `${0.3 + index * 0.08}s`
+                }}
+              >
+                <div className="loader-service-bubble">
+                  <span>{service}</span>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
 

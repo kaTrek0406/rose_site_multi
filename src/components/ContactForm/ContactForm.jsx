@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { sendToTelegram } from '../../services/telegramService';
+import SuccessNotification from '../SuccessNotification/SuccessNotification';
 import './ContactForm.css';
 
 const ContactForm = () => {
   const { t } = useLanguage();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -22,6 +25,10 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (isSubmitting) return; // Предотвращаем повторную отправку
+
+    setIsSubmitting(true);
+
     const telegramData = {
       name: formData.name,
       phone: formData.phone,
@@ -34,15 +41,17 @@ const ContactForm = () => {
     const result = await sendToTelegram(telegramData);
 
     if (result.success) {
-      alert(t('contact_form.success_message'));
       setFormData({
         name: '',
         phone: '',
         email: '',
         message: ''
       });
+      setIsSubmitting(false);
+      setShowSuccess(true);
     } else {
       alert(t('contact_form.error_message'));
+      setIsSubmitting(false);
     }
   };
 
@@ -100,11 +109,19 @@ const ContactForm = () => {
             ></textarea>
           </div>
 
-          <button type="submit" className="submit-button">
-            {t('contact_form.submit_button')}
+          <button type="submit" className="submit-button" disabled={isSubmitting}>
+            {isSubmitting ? t('contact_form.sending_button') : t('contact_form.submit_button')}
           </button>
         </form>
       </div>
+
+      {/* Success Notification */}
+      {showSuccess && (
+        <SuccessNotification
+          message={t('contact_form.success_message')}
+          onClose={() => setShowSuccess(false)}
+        />
+      )}
     </section>
   );
 };

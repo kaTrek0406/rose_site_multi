@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { sendToTelegram } from '../../services/telegramService';
+import SuccessNotification from '../SuccessNotification/SuccessNotification';
 import './Pricing.css';
 
 const Pricing = () => {
@@ -9,6 +10,7 @@ const Pricing = () => {
   const [showModal, setShowModal] = useState(false);
   const [selectedPlan, setSelectedPlan] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -44,6 +46,10 @@ const Pricing = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (isSubmitting) return; // Предотвращаем повторную отправку
+
+    setIsSubmitting(true);
+
     const telegramData = {
       name: formData.name,
       phone: formData.phone,
@@ -56,10 +62,11 @@ const Pricing = () => {
     const result = await sendToTelegram(telegramData);
 
     if (result.success) {
-      alert(t('pricing.modal.success_message'));
       handleCloseModal();
+      setShowSuccess(true);
     } else {
       alert(t('pricing.modal.error_message'));
+      setIsSubmitting(false);
     }
   };
 
@@ -243,12 +250,20 @@ const Pricing = () => {
                   rows="4"
                 ></textarea>
               </div>
-              <button type="submit" className="pricing-modal-submit">
-                {t('pricing.modal.submit_button')}
+              <button type="submit" className="pricing-modal-submit" disabled={isSubmitting}>
+                {isSubmitting ? t('pricing.modal.sending_button') : t('pricing.modal.submit_button')}
               </button>
             </form>
           </div>
         </div>
+      )}
+
+      {/* Success Notification */}
+      {showSuccess && (
+        <SuccessNotification
+          message={t('pricing.modal.success_message')}
+          onClose={() => setShowSuccess(false)}
+        />
       )}
     </section>
   );

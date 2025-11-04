@@ -1,13 +1,11 @@
 .pricing {
-  padding: 8rem 2rem;
-  background: linear-gradient(180deg, #ffffff 0%, #fef3f8 50%, #ffffff 100%);
+  background: #ffffff;
   position: relative;
   overflow: hidden;
 }
 
 .pricing-container {
-  max-width: 1400px;
-  margin: 0 auto;
+  width: 100%;
   position: relative;
   z-index: 2;
 }
@@ -89,16 +87,48 @@
 /* Popular Badge */
 .popular-badge {
   position: absolute;
-  top: 20px;
-  right: -35px;
-  background: linear-gradient(135deg, #ec4899, #db2777);
+  top: 30px;
+  right: -45px;
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
   color: white;
-  padding: 0.5rem 3rem;
+  padding: 0.6rem 4rem;
   font-weight: 700;
   font-size: 0.85rem;
   transform: rotate(45deg);
-  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.4);
+  box-shadow:
+    0 4px 15px rgba(236, 72, 153, 0.4),
+    0 2px 8px rgba(236, 72, 153, 0.3);
   letter-spacing: 1px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  overflow: visible;
+}
+
+.popular-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.popular-badge::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -50%;
+  right: -50%;
+  height: 100%;
+  background: inherit;
+  transform: translateY(-50%);
+  z-index: -1;
+  box-shadow: inherit;
 }
 
 .pricing-card.popular {
@@ -478,7 +508,9 @@
 
   .popular-badge {
     font-size: 0.75rem;
-    padding: 0.4rem 2.5rem;
+    padding: 0.5rem 3.5rem;
+    top: 25px;
+    right: -40px;
   }
 }
 

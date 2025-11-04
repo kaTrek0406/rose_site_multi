@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { sendToTelegram } from '../../services/telegramService';
+import SuccessNotification from '../SuccessNotification/SuccessNotification';
 import './Hero.css';
 import roseLogo from '../../assets/logo/rose-logo.png';
 
@@ -9,6 +10,8 @@ const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [showModal, setShowModal] = useState(false);
   const [hasShownModal, setHasShownModal] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -67,8 +70,16 @@ const Hero = () => {
     }
   };
 
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const closeModal = () => {
     setShowModal(false);
+    setIsSubmitting(false);
     setFormData({
       name: '',
       phone: '',
@@ -88,6 +99,10 @@ const Hero = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (isSubmitting) return; // Предотвращаем повторную отправку
+
+    setIsSubmitting(true);
+
     const telegramData = {
       name: formData.name,
       phone: formData.phone,
@@ -100,10 +115,11 @@ const Hero = () => {
     const result = await sendToTelegram(telegramData);
 
     if (result.success) {
-      alert(t('hero.modal.success_message'));
       closeModal();
+      setShowSuccess(true);
     } else {
       alert(t('hero.modal.error_message'));
+      setIsSubmitting(false);
     }
   };
 
@@ -139,9 +155,10 @@ const Hero = () => {
           ))}
         </p>
         <button className="hero-cta" onClick={scrollToPortfolio}>{t('hero.cta_button')}</button>
-        <div className="scroll-indicator">
-          <span className="scroll-arrow">▼</span>
-        </div>
+      </div>
+
+      <div className="scroll-indicator" onClick={scrollToServices}>
+        <span className="scroll-arrow">▼</span>
       </div>
 
       {/* Modal Form */}
@@ -190,10 +207,20 @@ const Hero = () => {
                   rows="4"
                 ></textarea>
               </div>
-              <button type="submit" className="modal-submit">{t('hero.modal.submit_button')}</button>
+              <button type="submit" className="modal-submit" disabled={isSubmitting}>
+                {isSubmitting ? t('hero.modal.sending_button') : t('hero.modal.submit_button')}
+              </button>
             </form>
           </div>
         </div>
+      )}
+
+      {/* Success Notification */}
+      {showSuccess && (
+        <SuccessNotification
+          message={t('hero.modal.success_message')}
+          onClose={() => setShowSuccess(false)}
+        />
       )}
     </section>
   );

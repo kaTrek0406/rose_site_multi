@@ -133,16 +133,19 @@ export const translations = {
     'pricing.modal.email_placeholder': 'Email (необязательно)',
     'pricing.modal.message_placeholder': 'Комментарий (необязательно)',
     'pricing.modal.submit_button': 'Отправить заявку',
+    'pricing.modal.sending_button': 'Отправка...',
     'pricing.modal.success_message': 'Спасибо! Мы получили вашу заявку и свяжемся с вами в ближайшее время.',
     'pricing.modal.error_message': 'Произошла ошибка при отправке. Пожалуйста, попробуйте позже или свяжитесь с нами напрямую.',
 
     // Hero Modal
     'hero.modal.success_message': 'Спасибо! Ваше сообщение отправлено.',
     'hero.modal.error_message': 'Произошла ошибка при отправке. Пожалуйста, попробуйте позже.',
+    'hero.modal.sending_button': 'Отправка...',
 
     // Contact Form
     'contact_form.success_message': 'Спасибо за ваше сообщение! Мы свяжемся с вами в ближайшее время.',
     'contact_form.error_message': 'Произошла ошибка при отправке. Пожалуйста, попробуйте позже или свяжитесь с нами напрямую.',
+    'contact_form.sending_button': 'ОТПРАВКА...',
 
     // Clients
     'clients.title': 'КЛИЕНТЫ И ОТЗЫВЫ',
@@ -326,16 +329,19 @@ export const translations = {
     'pricing.modal.email_placeholder': 'Email (opțional)',
     'pricing.modal.message_placeholder': 'Comentariu (opțional)',
     'pricing.modal.submit_button': 'Trimite cererea',
+    'pricing.modal.sending_button': 'Se trimite...',
     'pricing.modal.success_message': 'Mulțumim! Am primit cererea ta și te vom contacta în curând.',
     'pricing.modal.error_message': 'A apărut o eroare la trimitere. Te rugăm să încerci mai târziu sau să ne contactezi direct.',
 
     // Hero Modal
     'hero.modal.success_message': 'Mulțumim! Mesajul tău a fost trimis.',
     'hero.modal.error_message': 'A apărut o eroare la trimitere. Te rugăm să încerci mai târziu.',
+    'hero.modal.sending_button': 'Se trimite...',
 
     // Contact Form
     'contact_form.success_message': 'Mulțumim pentru mesajul tău! Te vom contacta în curând.',
     'contact_form.error_message': 'A apărut o eroare la trimitere. Te rugăm să încerci mai târziu sau să ne contactezi direct.',
+    'contact_form.sending_button': 'SE TRIMITE...',
 
     // Clients
     'clients.title': 'CLIENȚI ȘI RECENZII',

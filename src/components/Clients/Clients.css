@@ -1,11 +1,9 @@
 .clients {
-  padding: 6rem 2rem;
   background-color: #ffffff;
 }
 
 .clients-container {
-  max-width: 1400px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .clients-title {

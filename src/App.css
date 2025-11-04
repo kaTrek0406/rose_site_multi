@@ -26,3 +26,36 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* Единые отступы для всех секций */
+section {
+  padding: 6rem 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Для Hero секции убираем боковые отступы, так как там full screen */
+section.hero {
+  padding: 2rem;
+  max-width: none;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 4rem 1.5rem;
+  }
+
+  section.hero {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 3rem 1rem;
+  }
+
+  section.hero {
+    padding: 1rem;
+  }
+}
