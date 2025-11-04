@@ -2,13 +2,13 @@ import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import './Portfolio.css';
 
-// Import portfolio images (PNG для чистого изображения без текста)
-import golbanTradeImg from '../../assets/portfolio/golban-trade.png';
-import jomaImg from '../../assets/portfolio/joma.png';
-import heelImg from '../../assets/portfolio/heel.png';
-import colinaVerdeImg from '../../assets/portfolio/colina-verde.png';
-import getmancarImg from '../../assets/portfolio/getmancar.png';
-import epilBarImg from '../../assets/portfolio/epil-bar.png';
+// Import portfolio images (SVG для высокого качества)
+import golbanTradeImg from '../../assets/portfolio/golban.svg';
+import jomaImg from '../../assets/portfolio/joma1.svg';
+import heelImg from '../../assets/portfolio/heel1.svg';
+import colinaVerdeImg from '../../assets/portfolio/colina.svg';
+import getmancarImg from '../../assets/portfolio/getman.svg';
+import epilBarImg from '../../assets/portfolio/epil.svg';
 
 const Portfolio = () => {
   const { t } = useLanguage();

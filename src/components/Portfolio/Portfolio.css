@@ -102,13 +102,12 @@
 .portfolio-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   display: block;
   transition: transform 0.4s ease;
-  /* Оптимизация для изображений */
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  /* Оптимизация для SVG изображений */
+  image-rendering: auto;
   /* Убираем все отступы */
   margin: 0;
   padding: 0;
@@ -265,7 +264,8 @@
 .modal-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  image-rendering: auto;
 }
 
 .modal-info {
