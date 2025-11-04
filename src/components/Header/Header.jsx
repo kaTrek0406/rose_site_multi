@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import './Header.css';
-import facebookIcon from '../../assets/social/facebook.svg';
-import instagramIcon from '../../assets/social/instagram.svg';
-import linkedinIcon from '../../assets/social/linkedin.svg';
 import languageIcon from '../../assets/icons/language.png';
 
 const Header = () => {
@@ -42,26 +40,26 @@ const Header = () => {
 
             <div className="social-links-mobile">
               <a href="https://www.instagram.com/rose__creative/?utm_medium=copy_link" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
-                <img src={instagramIcon} alt="Instagram" className="social-icon" />
+                <FaInstagram className="social-icon" />
               </a>
               <a href="https://www.facebook.com/RoseCreativeTeam" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
-                <img src={facebookIcon} alt="Facebook" className="social-icon" />
+                <FaFacebookF className="social-icon" />
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
-                <img src={linkedinIcon} alt="LinkedIn" className="social-icon" />
+                <FaLinkedinIn className="social-icon" />
               </a>
             </div>
           </nav>
 
           <div className="social-links social-links-desktop">
             <a href="https://www.instagram.com/rose__creative/?utm_medium=copy_link" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">
-              <img src={instagramIcon} alt="Instagram" className="social-icon" />
+              <FaInstagram className="social-icon" />
             </a>
             <a href="https://www.facebook.com/RoseCreativeTeam" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
-              <img src={facebookIcon} alt="Facebook" className="social-icon" />
+              <FaFacebookF className="social-icon" />
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
-              <img src={linkedinIcon} alt="LinkedIn" className="social-icon" />
+              <FaLinkedinIn className="social-icon" />
             </a>
           </div>
         </div>

@@ -139,7 +139,8 @@
 .social-icon {
   width: 24px;
   height: 24px;
-  object-fit: contain;
+  font-size: 24px;
+  color: #ec4899;
   transition: all 0.3s ease;
 }
 
