@@ -16,9 +16,11 @@ export const translations = {
     'hero.modal.subtitle': 'Оставьте заявку и мы свяжемся с вами в течение 24 часов',
     'hero.modal.name_placeholder': 'Ваше имя',
     'hero.modal.phone_placeholder': 'Телефон',
-    'hero.modal.email_placeholder': 'Электронная почта',
-    'hero.modal.message_placeholder': 'Расскажите о вашем проекте',
+    'hero.modal.service_placeholder': 'Выберите интересующую услугу',
     'hero.modal.submit_button': 'Отправить заявку',
+    'hero.modal.sending_button': 'Отправка...',
+    'hero.modal.success_message': 'Спасибо! Мы свяжемся с вами в ближайшее время',
+    'hero.modal.error_message': 'Произошла ошибка при отправке. Попробуйте еще раз.',
 
     // Services
     'services.title': 'УСЛУГИ',
@@ -218,9 +220,11 @@ export const translations = {
     'hero.modal.subtitle': 'Lasă o solicitare și te vom contacta în 24 de ore',
     'hero.modal.name_placeholder': 'Numele tău',
     'hero.modal.phone_placeholder': 'Telefon',
-    'hero.modal.email_placeholder': 'Email',
-    'hero.modal.message_placeholder': 'Spune-ne despre proiectul tău',
+    'hero.modal.service_placeholder': 'Selectează serviciul de interes',
     'hero.modal.submit_button': 'Trimite solicitarea',
+    'hero.modal.sending_button': 'Se trimite...',
+    'hero.modal.success_message': 'Mulțumim! Te vom contacta în curând',
+    'hero.modal.error_message': 'A apărut o eroare la trimitere. Încearcă din nou.',
 
     // Services
     'services.title': 'SERVICII',

@@ -9,14 +9,14 @@ const Hero = () => {
   const { t } = useLanguage();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [showModal, setShowModal] = useState(false);
-  const [hasShownModal, setHasShownModal] = useState(false);
+  const [modalShowCount, setModalShowCount] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
-    email: '',
-    message: ''
+    service: ''
   });
 
   useEffect(() => {
@@ -31,37 +31,57 @@ const Hero = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Show modal once after user clicks and waits 2 minutes
+  // 3D эффект глубины при скролле
   useEffect(() => {
-    let modalTimeout = null;
-
-    const handleUserClick = (e) => {
-      // Don't trigger if already shown modal or if clicked submit button or close button
-      if (hasShownModal) return;
-      if (e.target.closest('.modal-submit') || e.target.closest('.modal-close') || e.target.closest('.modal-overlay')) return;
-
-      // Clear any existing timeout
-      if (modalTimeout) {
-        clearTimeout(modalTimeout);
-      }
-
-      // Set new timeout for 2 minutes (120 seconds)
-      modalTimeout = setTimeout(() => {
-        setShowModal(true);
-        setHasShownModal(true);
-      }, 120000); // 2 minutes in milliseconds
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const heroHeight = window.innerHeight;
+      const progress = Math.min(scrollPosition / heroHeight, 1);
+      setScrollProgress(progress);
     };
 
-    // Add click listener to document
-    document.addEventListener('click', handleUserClick);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Новая логика показа модального окна: 1 раз через 30 сек, 2 раз через 1 мин 20 сек
+  useEffect(() => {
+    let firstTimeout = null;
+    let secondTimeout = null;
+    let hasInteracted = false;
+
+    const handleUserInteraction = () => {
+      if (hasInteracted) return;
+      hasInteracted = true;
+
+      // Первое появление через 30 секунд
+      firstTimeout = setTimeout(() => {
+        if (modalShowCount === 0) {
+          setShowModal(true);
+          setModalShowCount(1);
+        }
+      }, 30000); // 30 секунд
+
+      // Второе появление через 1 минуту 20 секунд
+      secondTimeout = setTimeout(() => {
+        if (modalShowCount === 1) {
+          setShowModal(true);
+          setModalShowCount(2);
+        }
+      }, 80000); // 1 минута 20 секунд (80 секунд)
+    };
+
+    // Слушаем первый клик или скролл
+    document.addEventListener('click', handleUserInteraction, { once: true });
+    document.addEventListener('scroll', handleUserInteraction, { once: true });
 
     return () => {
-      document.removeEventListener('click', handleUserClick);
-      if (modalTimeout) {
-        clearTimeout(modalTimeout);
-      }
+      document.removeEventListener('click', handleUserInteraction);
+      document.removeEventListener('scroll', handleUserInteraction);
+      if (firstTimeout) clearTimeout(firstTimeout);
+      if (secondTimeout) clearTimeout(secondTimeout);
     };
-  }, [hasShownModal]);
+  }, [modalShowCount]);
 
   const scrollToPortfolio = () => {
     const portfolioSection = document.getElementById('portfolio');
@@ -83,8 +103,7 @@ const Hero = () => {
     setFormData({
       name: '',
       phone: '',
-      email: '',
-      message: ''
+      service: ''
     });
   };
 
@@ -103,12 +122,14 @@ const Hero = () => {
 
     setIsSubmitting(true);
 
+    const showTime = modalShowCount === 1 ? '30 секунд' : '1 минута 20 секунд';
+
     const telegramData = {
       name: formData.name,
       phone: formData.phone,
-      email: formData.email || '-',
-      message: formData.message || '-',
-      source: 'Всплывающая форма (через 2 минуты после клика)',
+      email: '-',
+      message: formData.service ? `Интересующая услуга: ${formData.service}` : '-',
+      source: `Всплывающая форма (${showTime} после взаимодействия)`,
       plan: null
     };
 
@@ -124,12 +145,32 @@ const Hero = () => {
   };
 
   return (
-    <section className="hero" id="home">
+    <section
+      className="hero"
+      id="home"
+      style={{
+        transform: `perspective(1000px) rotateX(${scrollProgress * 15}deg) scale(${1 - scrollProgress * 0.3})`,
+        opacity: 1 - scrollProgress * 0.7,
+        transformOrigin: 'center top'
+      }}
+    >
       {/* Animated background gradient */}
-      <div className="hero-gradient-bg"></div>
+      <div
+        className="hero-gradient-bg"
+        style={{
+          transform: `translateZ(-200px) scale(${1 + scrollProgress * 0.3})`,
+          opacity: 1 - scrollProgress * 0.5
+        }}
+      ></div>
 
       {/* Floating particles */}
-      <div className="particles">
+      <div
+        className="particles"
+        style={{
+          transform: `translateZ(-100px) translateY(${scrollProgress * 200}px)`,
+          opacity: 1 - scrollProgress
+        }}
+      >
         {[...Array(15)].map((_, i) => (
           <div key={i} className="particle" style={{
             left: `${Math.random() * 100}%`,
@@ -142,7 +183,8 @@ const Hero = () => {
       <div
         className="hero-content"
         style={{
-          transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)`
+          transform: `translate(${mousePosition.x}px, ${mousePosition.y}px) translateZ(${scrollProgress * -300}px) scale(${1 - scrollProgress * 0.2})`,
+          opacity: 1 - scrollProgress * 0.8
         }}
       >
         <div className="hero-logo">
@@ -190,22 +232,20 @@ const Hero = () => {
                 />
               </div>
               <div className="modal-form-group">
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
+                <select
+                  name="service"
+                  value={formData.service}
                   onChange={handleInputChange}
-                  placeholder={t('hero.modal.email_placeholder')}
-                />
-              </div>
-              <div className="modal-form-group">
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  placeholder={t('hero.modal.message_placeholder')}
-                  rows="4"
-                ></textarea>
+                  className="modal-select"
+                >
+                  <option value="">{t('hero.modal.service_placeholder')}</option>
+                  <option value={t('services.smm.title')}>{t('services.smm.title')}</option>
+                  <option value={t('services.design.title')}>{t('services.design.title')}</option>
+                  <option value={t('services.photo.title')}>{t('services.photo.title')}</option>
+                  <option value={t('services.target.title')}>{t('services.target.title')}</option>
+                  <option value={t('services.video.title')}>{t('services.video.title')}</option>
+                  <option value={t('services.illustration.title')}>{t('services.illustration.title')}</option>
+                </select>
               </div>
               <button type="submit" className="modal-submit" disabled={isSubmitting}>
                 {isSubmitting ? t('hero.modal.sending_button') : t('hero.modal.submit_button')}

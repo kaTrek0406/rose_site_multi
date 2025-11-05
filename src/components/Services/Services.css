@@ -1,5 +1,8 @@
 .services {
   background-color: #ffffff;
+  position: relative;
+  z-index: 10;
+  transform-style: preserve-3d;
 }
 
 .services-container {
