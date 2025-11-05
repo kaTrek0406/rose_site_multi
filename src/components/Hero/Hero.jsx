@@ -6,7 +6,7 @@ import SuccessNotification from '../SuccessNotification/SuccessNotification';
 import './Hero.css';
 import roseLogo from '../../assets/logo/rose-logo.png';
 
-const enableDepth = true; // ← поставь false, чтобы полностью отключить 3D-эффект
+const enableDepth = false; // ← поставь false, чтобы полностью отключить 3D-эффект
 
 const Hero = () => {
   const { t } = useLanguage();

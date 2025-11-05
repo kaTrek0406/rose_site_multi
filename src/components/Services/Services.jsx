@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import './Services.css';
 
@@ -12,7 +11,6 @@ import ilustrationIcon from '../../assets/services/ilustration.png';
 
 const Services = () => {
   const { t } = useLanguage();
-  const [scrollProgress, setScrollProgress] = useState(0);
 
   const services = [
     {
@@ -47,30 +45,10 @@ const Services = () => {
     }
   ];
 
-  // 3D эффект появления Services при скролле от Hero
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      const heroHeight = window.innerHeight;
-      // Прогресс от 0 до 1 во время скролла от Hero к Services
-      const progress = Math.min(Math.max((scrollPosition - heroHeight * 0.5) / (heroHeight * 0.5), 0), 1);
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <section
       className="services"
       id="services"
-      style={{
-        transform: `perspective(1500px) translateZ(${(1 - scrollProgress) * -500}px) scale(${0.8 + scrollProgress * 0.2})`,
-        opacity: scrollProgress,
-        transition: 'transform 0.1s ease-out, opacity 0.1s ease-out'
-      }}
     >
       <div className="services-container">
         <h2 className="services-title">{t('services.title')}</h2>

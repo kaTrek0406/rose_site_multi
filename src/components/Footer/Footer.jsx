@@ -104,7 +104,7 @@ const Footer = () => {
 
           <div className="footer-map">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2719.234!2d28.8556!3d47.0324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40c97c3a68e7d4d1%3A0x5b7f8c9a6d4e3f2a!2sValeaTrandafirilor%206%2C%20Chi%C8%99in%C4%83u%2C%20Moldova!5e0!3m2!1sen!2s!4v1234567890"
+              src="https://www.google.com/maps?q=Valea+Trandafirilor+6/2,+Chișinău,+Moldova&output=embed"
               width="100%"
               height="300"
               style={{ border: 0, borderRadius: '15px' }}
