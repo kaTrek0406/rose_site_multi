@@ -105,7 +105,7 @@ const Pricing = () => {
         t('pricing.starter.feature4'),
         t('pricing.starter.feature5')
       ],
-      color: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      color: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
       popular: false
     },
     {
@@ -117,12 +117,9 @@ const Pricing = () => {
       features: [
         t('pricing.professional.feature1'),
         t('pricing.professional.feature2'),
-        t('pricing.professional.feature3'),
-        t('pricing.professional.feature4'),
-        t('pricing.professional.feature5'),
-        t('pricing.professional.feature6')
+        t('pricing.professional.feature3')
       ],
-      color: 'linear-gradient(135deg, #ec4899 0%, #db2777 100%)',
+      color: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
       popular: true
     },
     {
@@ -136,9 +133,7 @@ const Pricing = () => {
         t('pricing.premium.feature2'),
         t('pricing.premium.feature3'),
         t('pricing.premium.feature4'),
-        t('pricing.premium.feature5'),
-        t('pricing.premium.feature6'),
-        t('pricing.premium.feature7')
+        t('pricing.premium.feature5')
       ],
       color: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
       popular: false
@@ -216,8 +211,8 @@ const Pricing = () => {
 
       {/* Modal Form */}
       {showModal && selectedPlan && (
-        <div className="pricing-modal-overlay" onClick={handleCloseModal}>
-          <div className="pricing-modal-content" onClick={(e) => e.stopPropagation()}>
+        <div className="pricing-modal-overlay">
+          <div className="pricing-modal-content">
             <button className="pricing-modal-close" onClick={handleCloseModal}>×</button>
             <h2 className="pricing-modal-title">
               {t('pricing.modal.title')} "{selectedPlan.name}"

@@ -233,8 +233,8 @@ const handleInputChange = (e) => {
 
       {/* Modal Form через портал — больше не «съезжает» */}
       {showModal && createPortal(
-        <div className="modal-overlay" onClick={closeModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-overlay">
+          <div className="modal-content">
             <button className="modal-close" onClick={closeModal}>×</button>
             <h2 className="modal-title">{t('hero.modal.title')}</h2>
             <p className="modal-subtitle">{t('hero.modal.subtitle')}</p>

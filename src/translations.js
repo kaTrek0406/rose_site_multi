@@ -26,17 +26,17 @@ export const translations = {
 
     // Services
     'services.title': 'УСЛУГИ',
-    'services.smm.title': 'SMM',
+    'services.smm.title': 'Smm',
     'services.smm.description': 'Профессиональное продвижение в социальных сетях, создание контента и взаимодействие с аудиторией для роста вашего бренда.',
-    'services.design.title': 'ДИЗАЙН',
+    'services.design.title': 'Дизайн',
     'services.design.description': 'Разработка уникального фирменного стиля, логотипов и графических материалов для вашего бизнеса.',
-    'services.photo.title': 'ФОТОСЪЕМКА',
+    'services.photo.title': 'Фотосъемка',
     'services.photo.description': 'Профессиональная фотосъемка продукции, интерьеров и рекламных кампаний высокого качества.',
-    'services.target.title': 'ТАРГЕТ',
+    'services.target.title': 'Таргет',
     'services.target.description': 'Настройка и ведение таргетированной рекламы для достижения максимальной отдачи от рекламного бюджета.',
-    'services.video.title': 'ВИДЕОСЪЕМКА',
+    'services.video.title': 'Видеосъемка',
     'services.video.description': 'Создание качественного видеоконтента, рекламных роликов и промо-материалов для вашего бренда.',
-    'services.illustration.title': 'ИЛЛЮСТРАЦИИ',
+    'services.illustration.title': 'Иллюстрации',
     'services.illustration.description': 'Создание уникальных иллюстраций и графических элементов для усиления визуальной идентичности бренда.',
 
     // Portfolio
@@ -105,30 +105,25 @@ export const translations = {
 
     'pricing.starter.name': 'Стартовый',
     'pricing.starter.description': 'Идеально для начинающих',
-    'pricing.starter.feature1': 'Разработка логотипа',
-    'pricing.starter.feature2': 'Базовый фирменный стиль',
-    'pricing.starter.feature3': 'Дизайн визиток',
-    'pricing.starter.feature4': 'Поддержка 1 месяц',
-    'pricing.starter.feature5': 'Консультация по брендингу',
+    'pricing.starter.feature1': 'Анализ бизнеса, составление портрета клиента',
+    'pricing.starter.feature2': 'Создание или реконструкция оформления страниц в соц.сетях',
+    'pricing.starter.feature3': 'Разработка контент-плана на 9 постов и рубрикатора на месяц',
+    'pricing.starter.feature4': 'Фотосъемка - 1 час',
+    'pricing.starter.feature5': 'Отчетность',
 
     'pricing.professional.name': 'Профессиональный',
     'pricing.professional.description': 'Для растущего бизнеса',
-    'pricing.professional.feature1': 'Полный брендинг',
-    'pricing.professional.feature2': 'SMM на 1 платформе',
-    'pricing.professional.feature3': 'Контент-план на месяц',
-    'pricing.professional.feature4': 'Фотосъемка (1 день)',
-    'pricing.professional.feature5': 'Таргетированная реклама',
-    'pricing.professional.feature6': 'Поддержка 3 месяца',
+    'pricing.professional.feature1': 'Всё из предложения за 600 евро +',
+    'pricing.professional.feature2': 'Создание сценариев для видео Reels (2-3 единицы)',
+    'pricing.professional.feature3': 'Фото/Видеосъемка - 3 часа',
 
     'pricing.premium.name': 'Премиум',
     'pricing.premium.description': 'Комплексное решение',
-    'pricing.premium.feature1': 'Полный брендинг',
-    'pricing.premium.feature2': 'SMM на 3 платформах',
-    'pricing.premium.feature3': 'Контент-план на 3 месяца',
-    'pricing.premium.feature4': 'Фотосъемка (3 дня)',
-    'pricing.premium.feature5': 'Видеопроизводство',
-    'pricing.premium.feature6': 'Настройка рекламы',
-    'pricing.premium.feature7': 'Поддержка 6 месяцев',
+    'pricing.premium.feature1': 'Всё из предложения за 800 евро +',
+    'pricing.premium.feature2': 'Создание комплексной стратегии присутствия в социальных сетях',
+    'pricing.premium.feature3': 'Дизайн макеты',
+    'pricing.premium.feature4': 'Stories для каждой социальной сети (20 слайдов)',
+    'pricing.premium.feature5': 'Стратегия таргетированной рекламы на посты, вышедшие на страницу, в рамках контент плана',
 
     // Pricing Modal
     'pricing.modal.title': 'Заказать тариф',
@@ -188,11 +183,12 @@ export const translations = {
 
     // Footer
     'footer.address.title': 'АДРЕС',
-    'footer.address.value': 'ул. Митрополит Варлаам 78, Кишинёв, Молдова',
+    'footer.address.value': 'Valea Trandafirilor 6/2 of 119, Chișinău, Moldova',
     'footer.email.title': 'ЭЛЕКТРОННАЯ ПОЧТА',
     'footer.email.value': 'rosecreative13@gmail.com',
     'footer.phone.title': 'ТЕЛЕФОН',
     'footer.phone.value': '+373 69 200 775',
+    'footer.phone2.value': '+373 78 329 518',
 
     // Loader
     'loader.text': 'Загрузка',
@@ -232,17 +228,17 @@ export const translations = {
 
     // Services
     'services.title': 'SERVICII',
-    'services.smm.title': 'SMM',
+    'services.smm.title': 'Smm',
     'services.smm.description': 'Promovare profesională în rețelele sociale, crearea conținutului și interacțiunea cu publicul pentru creșterea brandului tău.',
-    'services.design.title': 'DESIGN',
+    'services.design.title': 'Design',
     'services.design.description': 'Dezvoltarea stilului corporativ unic, logo-uri și materiale grafice pentru afacerea ta.',
-    'services.photo.title': 'FOTOGRAFIE',
+    'services.photo.title': 'Fotografie',
     'services.photo.description': 'Fotografie profesională de produse, interioare și campanii publicitare de înaltă calitate.',
-    'services.target.title': 'TARGET',
+    'services.target.title': 'Target',
     'services.target.description': 'Configurarea și gestionarea publicității țintite pentru a obține randament maxim din bugetul publicitar.',
-    'services.video.title': 'VIDEOGRAFIE',
+    'services.video.title': 'Videografie',
     'services.video.description': 'Crearea conținutului video de calitate, clipuri publicitare și materiale promoționale pentru brandul tău.',
-    'services.illustration.title': 'ILUSTRAȚII',
+    'services.illustration.title': 'Ilustrații',
     'services.illustration.description': 'Crearea ilustrațiilor unice și elementelor grafice pentru consolidarea identității vizuale a brandului.',
 
     // Portfolio
@@ -311,30 +307,25 @@ export const translations = {
 
     'pricing.starter.name': 'Start',
     'pricing.starter.description': 'Perfect pentru începători',
-    'pricing.starter.feature1': 'Dezvoltare logo',
-    'pricing.starter.feature2': 'Stil corporativ de bază',
-    'pricing.starter.feature3': 'Design cărți de vizită',
-    'pricing.starter.feature4': 'Suport 1 lună',
-    'pricing.starter.feature5': 'Consultanță branding',
+    'pricing.starter.feature1': 'Analiza afacerii, crearea portretului clientului',
+    'pricing.starter.feature2': 'Crearea sau reconstrucția paginilor de rețele sociale',
+    'pricing.starter.feature3': 'Dezvoltarea planului de conținut pentru 9 postări și rubricator pe lună',
+    'pricing.starter.feature4': 'Fotografie - 1 oră',
+    'pricing.starter.feature5': 'Raportare',
 
     'pricing.professional.name': 'Profesional',
     'pricing.professional.description': 'Pentru afaceri în creștere',
-    'pricing.professional.feature1': 'Branding complet',
-    'pricing.professional.feature2': 'SMM pe 1 platformă',
-    'pricing.professional.feature3': 'Plan de conținut pe lună',
-    'pricing.professional.feature4': 'Sesiune foto (1 zi)',
-    'pricing.professional.feature5': 'Publicitate țintită',
-    'pricing.professional.feature6': 'Suport 3 luni',
+    'pricing.professional.feature1': 'Tot din oferta de 600 euro +',
+    'pricing.professional.feature2': 'Crearea scenariilor pentru videoclipuri Reels (2-3 unități)',
+    'pricing.professional.feature3': 'Foto/Video sesiune - 3 ore',
 
     'pricing.premium.name': 'Premium',
     'pricing.premium.description': 'Soluție complexă',
-    'pricing.premium.feature1': 'Branding complet',
-    'pricing.premium.feature2': 'SMM pe 3 platforme',
-    'pricing.premium.feature3': 'Plan de conținut pe 3 luni',
-    'pricing.premium.feature4': 'Sesiune foto (3 zile)',
-    'pricing.premium.feature5': 'Producție video',
-    'pricing.premium.feature6': 'Configurare publicitate',
-    'pricing.premium.feature7': 'Suport 6 luni',
+    'pricing.premium.feature1': 'Tot din oferta de 800 euro +',
+    'pricing.premium.feature2': 'Crearea strategiei complexe de prezență în rețelele sociale',
+    'pricing.premium.feature3': 'Design machete',
+    'pricing.premium.feature4': 'Stories pentru fiecare rețea socială (20 slide-uri)',
+    'pricing.premium.feature5': 'Strategia publicității țintite pentru postările publicate pe pagină, în cadrul planului de conținut',
 
     // Pricing Modal
     'pricing.modal.title': 'Comandă tarif',
@@ -394,11 +385,12 @@ export const translations = {
 
     // Footer
     'footer.address.title': 'ADRESĂ',
-    'footer.address.value': 'Str. Mitropolit Varlaam 78, Chișinău, Moldova',
+    'footer.address.value': 'Valea Trandafirilor 6/2 of 119, Chișinău, Moldova',
     'footer.email.title': 'EMAIL',
     'footer.email.value': 'rosecreative13@gmail.com',
     'footer.phone.title': 'TELEFON',
     'footer.phone.value': '+373 69 200 775',
+    'footer.phone2.value': '+373 78 329 518',
 
     // Loader
     'loader.text': 'Încărcare',
