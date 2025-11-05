@@ -13,10 +13,11 @@ const Pricing = () => {
   const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
-    phone: '',
+    phone: '+373',
     email: '',
     message: ''
   });
+
 
   const handleOpenModal = (plan) => {
     setSelectedPlan(plan);
@@ -35,13 +36,33 @@ const Pricing = () => {
     });
   };
 
+  const allowedPrefixes = ['60', '61', '62', '65', '67', '68', '69', '78', '79'];
+
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+  const { name, value } = e.target;
+
+  if (name === 'phone') {
+    let cleaned = value.replace(/\D/g, '');
+    if (cleaned.startsWith('373')) cleaned = cleaned.slice(3);
+    if (cleaned.length > 8) cleaned = cleaned.slice(0, 8);
+
+    const prefix = cleaned.slice(0, 2);
+    if (cleaned.length >= 2 && !allowedPrefixes.includes(prefix)) {
+      return;
+    }
+
+    setFormData(prev => ({
+      ...prev,
+      phone: '+373' + cleaned
+    }));
+  } else {
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
-  };
+  }
+};
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -222,8 +243,12 @@ const Pricing = () => {
                   value={formData.phone}
                   onChange={handleInputChange}
                   placeholder={t('pricing.modal.phone_placeholder')}
+                  maxLength={12}
+                  pattern="^\+373(60|61|65|67|68|69|78|79)\d{6}$"
+                  title="+373 и 8 цифр, начиная с 60,61,65,67,68,69,78,79"
                   required
                 />
+
               </div>
               <div className="pricing-modal-form-group">
                 <input

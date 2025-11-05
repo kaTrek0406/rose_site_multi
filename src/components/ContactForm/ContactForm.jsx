@@ -9,18 +9,34 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    message: ''
-  });
+  name: '',
+  phone: '+373',
+  email: '',
+  message: ''
+});
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+
+  const allowedPrefixes = ['60', '61', '62', '65', '67', '68', '69', '78', '79'];
+
+const handleChange = (e) => {
+  const { name, value } = e.target;
+
+  if (name === 'phone') {
+    let cleaned = value.replace(/\D/g, ''); // только цифры
+    if (cleaned.startsWith('373')) cleaned = cleaned.slice(3); // убираем повторный ввод префикса
+    if (cleaned.length > 8) cleaned = cleaned.slice(0, 8); // максимум 8 цифр
+
+    const prefix = cleaned.slice(0, 2);
+    if (cleaned.length >= 2 && !allowedPrefixes.includes(prefix)) {
+      return; // если первые 2 цифры недопустимы, не обновляем поле
+    }
+
+    setFormData({ ...formData, phone: '+373' + cleaned });
+  } else {
+    setFormData({ ...formData, [name]: value });
+  }
+};
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -80,6 +96,9 @@ const ContactForm = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
+                maxLength={12} // +373 + 8 цифр = 12
+                pattern="^\+373(60|61|62|65|67|68|69|78|79)\d{6}$"
+                title="+373 и 8 цифр, начиная с 60,61,65,67,68,69,78,79"
                 required
               />
             </div>

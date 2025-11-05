@@ -156,3 +156,17 @@
     font-size: 0.9rem;
   }
 }
+
+/* запрет растягивания */
+.contact-form textarea,
+.modal-form textarea {
+  resize: none;
+  overflow: auto;      /* если текст длинный — скролл, а не растяжение */
+}
+
+/* опционально — приятные ограничения по высоте */
+.contact-form textarea,
+.modal-form textarea {
+  min-height: 120px;
+  max-height: 220px;   /* чтобы не «раздувало» секцию */
+}
