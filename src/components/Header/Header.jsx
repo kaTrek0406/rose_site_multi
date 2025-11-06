@@ -34,6 +34,7 @@ const Header = () => {
           <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
             <a href="#home" className="nav-link" onClick={closeMenu}>{t('header.nav.home')}</a>
             <a href="#services" className="nav-link" onClick={closeMenu}>{t('header.nav.services')}</a>
+            <a href="#workflow" className="nav-link" onClick={closeMenu}>{t('header.nav.workflow')}</a>
             <a href="#portfolio" className="nav-link" onClick={closeMenu}>{t('header.nav.portfolio')}</a>
             <a href="#clients" className="nav-link" onClick={closeMenu}>{t('header.nav.clients')}</a>
             <a href="#contact" className="nav-link" onClick={closeMenu}>{t('header.nav.contact')}</a>

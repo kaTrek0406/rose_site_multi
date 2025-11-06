@@ -3,6 +3,7 @@ import { LanguageProvider } from './contexts/LanguageContext';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
 import Services from './components/Services/Services';
+import Workflow from './components/Workflow/Workflow';
 import Portfolio from './components/Portfolio/Portfolio';
 import Pricing from './components/Pricing/Pricing';
 import Clients from './components/Clients/Clients';
@@ -27,6 +28,7 @@ function App() {
         <Header />
         <Hero />
         <Services />
+        <Workflow />
         <Portfolio />
         <Pricing />
         <Clients />

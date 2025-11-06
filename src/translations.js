@@ -3,6 +3,7 @@ export const translations = {
     // Header
     'header.nav.home': 'Главная',
     'header.nav.services': 'Услуги',
+    'header.nav.workflow': 'Как мы работаем',
     'header.nav.portfolio': 'Портфолио',
     'header.nav.clients': 'Клиенты',
     'header.nav.contact': 'Контакты',
@@ -229,6 +230,20 @@ export const translations = {
     'clients.testimonial5.company': 'Getmancar',
     'clients.testimonial5.text': 'Комплексное продвижение автосервиса было выполнено на высшем уровне. Сайт, соцсети, таргетированная реклама - все работает отлично. Узнаваемость бренда значительно выросла!',
 
+    // Workflow
+    'workflow.main_title': 'КАК МЫ РАБОТАЕМ',
+    'workflow.subtitle': 'Наш проверенный процесс работы гарантирует высокое качество и своевременную доставку каждого проекта',
+    'workflow.step1.title': 'Знакомство и брифинг',
+    'workflow.step1.description': 'Встречаемся с вами, обсуждаем задачи, цели и видение проекта. Изучаем ваш бизнес, конкурентов и целевую аудиторию, чтобы создать эффективную стратегию.',
+    'workflow.step2.title': 'Разработка концепции',
+    'workflow.step2.description': 'Создаём несколько вариантов концепции на основе брифа. Презентуем идеи, обсуждаем детали и вместе выбираем лучшее решение для вашего проекта.',
+    'workflow.step3.title': 'Съемка и производство',
+    'workflow.step3.description': 'Проводим профессиональную фото или видеосъемку, создаём дизайн-макеты, иллюстрации. Работаем с лучшим оборудованием и командой специалистов.',
+    'workflow.step4.title': 'Постпродакшн',
+    'workflow.step4.description': 'Обрабатываем материалы, корректируем цвета, добавляем эффекты. Создаём финальные версии контента и согласовываем их с вами перед запуском.',
+    'workflow.step5.title': 'Запуск и поддержка',
+    'workflow.step5.description': 'Запускаем рекламные кампании, публикуем контент в соцсетях. Анализируем результаты, оптимизируем стратегию и обеспечиваем постоянную поддержку.',
+
     // Contact Form
     'contact_form.title': 'НАПИШИТЕ НАМ',
     'contact_form.name_label': '*ИМЯ',
@@ -261,6 +276,7 @@ export const translations = {
     // Header
     'header.nav.home': 'Acasă',
     'header.nav.services': 'Servicii',
+    'header.nav.workflow': 'Cum lucrăm',
     'header.nav.portfolio': 'Portofoliu',
     'header.nav.clients': 'Clienți',
     'header.nav.contact': 'Contacte',
@@ -454,6 +470,20 @@ export const translations = {
     'hero.modal.success_message': 'Mulțumim! Mesajul tău a fost trimis.',
     'hero.modal.error_message': 'A apărut o eroare la trimitere. Te rugăm să încerci mai târziu.',
     'hero.modal.sending_button': 'Se trimite...',
+
+    // Workflow
+    'workflow.main_title': 'CUM LUCRĂM',
+    'workflow.subtitle': 'Procesul nostru dovedit de lucru garantează calitate înaltă și livrare la timp pentru fiecare proiect',
+    'workflow.step1.title': 'Cunoaștere și briefing',
+    'workflow.step1.description': 'Ne întâlnim cu tine, discutăm despre sarcini, obiective și viziunea proiectului. Studiem afacerea ta, concurenții și publicul țintă pentru a crea o strategie eficientă.',
+    'workflow.step2.title': 'Dezvoltarea conceptului',
+    'workflow.step2.description': 'Creăm mai multe variante de concept pe baza brief-ului. Prezentăm ideile, discutăm detaliile și alegem împreună cea mai bună soluție pentru proiectul tău.',
+    'workflow.step3.title': 'Filmare și producție',
+    'workflow.step3.description': 'Realizăm sesiuni foto sau video profesionale, creăm machete de design și ilustrații. Lucrăm cu cel mai bun echipament și o echipă de specialiști.',
+    'workflow.step4.title': 'Post-producție',
+    'workflow.step4.description': 'Procesăm materialele, corectăm culorile, adăugăm efecte. Creăm versiunile finale ale conținutului și le coordonăm cu tine înainte de lansare.',
+    'workflow.step5.title': 'Lansare și suport',
+    'workflow.step5.description': 'Lansăm campanii publicitare, publicăm conținut pe rețelele sociale. Analizăm rezultatele, optimizăm strategia și oferim suport constant.',
 
     // Contact Form
     'contact_form.success_message': 'Mulțumim pentru mesajul tău! Te vom contacta în curând.',
