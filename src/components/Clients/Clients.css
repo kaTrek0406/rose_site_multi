@@ -29,21 +29,23 @@
   border-radius: 2px;
 }
 
-/* Основной контейнер с двумя колонками */
+/* Основной контейнер - вертикальная структура */
 .clients-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 4rem;
   margin-top: 4rem;
-  align-items: center;
 }
 
-/* Левая часть - Отзыв */
+/* Верхняя часть - Отзыв */
 .testimonial-section {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .testimonial-card {
@@ -105,124 +107,81 @@
   transform: scale(1.2);
 }
 
-/* Правая часть - Логотипы клиентов */
+/* Нижняя часть - Логотипы клиентов с горизонтальной прокруткой */
 .clients-logos {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  align-items: center;
-  justify-items: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 1rem;
 }
 
+.logos-track {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  width: max-content;
+  animation: logosMarquee 30s linear infinite;
+  will-change: transform;
+}
+
+/* замедление при наведении на область с логотипами */
+.clients-logos:hover .logos-track {
+  animation-duration: 60s;
+}
+
+/* Стилизация скроллбара для webkit браузеров */
+/* скрываем нативный скролл, так как используем бесконечный трек */
+.clients-logos::-webkit-scrollbar { display: none; }
+
 .client-logo-wrapper {
-  width: 100%;
-  padding: 1.5rem 1rem;
+  flex-shrink: 0;
+  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.3s ease;
   position: relative;
-  border-bottom: 3px solid transparent;
-  min-height: 100px;
-}
-
-/* Подсветка снизу для активного логотипа - чередование розового и желтого */
-.client-logo-wrapper:nth-child(odd).active {
-  border-bottom-color: #ec4899;
-  box-shadow: 0 5px 20px rgba(236, 72, 153, 0.5);
-  background: linear-gradient(to top, rgba(236, 72, 153, 0.05), transparent);
-}
-
-.client-logo-wrapper:nth-child(even).active {
-  border-bottom-color: #ffd700;
-  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.5);
-  background: linear-gradient(to top, rgba(255, 215, 0, 0.05), transparent);
+  min-height: 80px;
 }
 
 .client-logo {
   width: auto;
-  height: auto;
-  max-width: 100%;
+  height: 60px;
+  max-width: 150px;
   object-fit: contain;
-  filter: grayscale(100%) contrast(1.1) brightness(1.05);
-  opacity: 0.5;
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: grayscale(0%) contrast(1.1) brightness(1.05);
+  opacity: 0.8;
+  transition: all 0.3s ease;
   /* Оптимизация для SVG */
   image-rendering: auto;
   shape-rendering: geometricPrecision;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   transform: translateZ(0);
-  will-change: transform, filter, opacity;
-}
-
-/* Размеры для каждого логотипа согласно Figma */
-.client-logo-wrapper:nth-child(1) .client-logo {
-  max-width: 65px;
-  max-height: 72px;
-}
-
-.client-logo-wrapper:nth-child(2) .client-logo {
-  max-width: 161px;
-  max-height: 68px;
-}
-
-.client-logo-wrapper:nth-child(3) .client-logo {
-  max-width: 162px;
-  max-height: 38px;
-}
-
-.client-logo-wrapper:nth-child(4) .client-logo {
-  max-width: 70px;
-  max-height: 70px;
-}
-
-.client-logo-wrapper:nth-child(5) .client-logo {
-  max-width: 160px;
-  max-height: 68px;
-}
-
-.client-logo-wrapper:nth-child(6) .client-logo {
-  max-width: 162px;
-  max-height: 35px;
-}
-
-.client-logo-wrapper.active .client-logo {
-  filter: grayscale(0%) contrast(1.15) brightness(1.1) drop-shadow(0 0 8px rgba(236, 72, 153, 0.3));
-  opacity: 1;
-  transform: scale(1.3) translateZ(0);
-  animation: pulse 2.5s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1.3) translateZ(0);
-  }
-  50% {
-    transform: scale(1.35) translateZ(0);
-  }
 }
 
 .client-logo-wrapper:hover .client-logo {
-  filter: grayscale(0%) contrast(1.1) brightness(1.05);
+  filter: grayscale(0%) contrast(1.15) brightness(1.1);
   opacity: 1;
-  transform: scale(1.2) translateZ(0);
+  transform: scale(1.08) translateZ(0);
 }
 
-.client-logo-wrapper:hover {
-  border-bottom-color: #ec4899;
-  transform: translateY(-5px);
+@keyframes logosMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @media (max-width: 1024px) {
   .clients-content {
-    grid-template-columns: 1fr;
     gap: 3rem;
   }
 
-  .clients-logos {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+  .client-logo {
+    height: 50px;
+    max-width: 130px;
   }
 }
 
@@ -259,13 +218,33 @@
   }
 
   .clients-logos {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 2rem;
+    padding: 1.5rem 0.5rem;
+  }
+
+  .client-logo {
+    height: 45px;
+    max-width: 120px;
   }
 }
 
 @media (max-width: 480px) {
+  .clients-content {
+    gap: 2rem;
+  }
+
   .clients-logos {
-    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem 0.5rem;
+  }
+
+  .client-logo {
+    height: 40px;
+    max-width: 100px;
+  }
+
+  .client-logo-wrapper {
+    padding: 0.5rem;
+    min-height: 60px;
   }
 }

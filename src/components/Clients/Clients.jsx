@@ -19,43 +19,37 @@ const Clients = () => {
       name: t('clients.testimonial0.name'),
       position: t('clients.testimonial0.position'),
       company: t('clients.testimonial0.company'),
-      text: t('clients.testimonial0.text'),
-      clientIndex: 0
+      text: t('clients.testimonial0.text')
     },
     {
       name: t('clients.testimonial1.name'),
       position: t('clients.testimonial1.position'),
       company: t('clients.testimonial1.company'),
-      text: t('clients.testimonial1.text'),
-      clientIndex: 1
+      text: t('clients.testimonial1.text')
     },
     {
       name: t('clients.testimonial2.name'),
       position: t('clients.testimonial2.position'),
       company: t('clients.testimonial2.company'),
-      text: t('clients.testimonial2.text'),
-      clientIndex: 2
+      text: t('clients.testimonial2.text')
     },
     {
       name: t('clients.testimonial3.name'),
       position: t('clients.testimonial3.position'),
       company: t('clients.testimonial3.company'),
-      text: t('clients.testimonial3.text'),
-      clientIndex: 3
+      text: t('clients.testimonial3.text')
     },
     {
       name: t('clients.testimonial4.name'),
       position: t('clients.testimonial4.position'),
       company: t('clients.testimonial4.company'),
-      text: t('clients.testimonial4.text'),
-      clientIndex: 4
+      text: t('clients.testimonial4.text')
     },
     {
       name: t('clients.testimonial5.name'),
       position: t('clients.testimonial5.position'),
       company: t('clients.testimonial5.company'),
-      text: t('clients.testimonial5.text'),
-      clientIndex: 5
+      text: t('clients.testimonial5.text')
     }
   ];
 
@@ -108,22 +102,22 @@ const Clients = () => {
             </button>
           </div>
 
-          {/* Правая часть - Логотипы клиентов */}
+          {/* Правая часть - Логотипы клиентов (бесконечный бегунок) */}
           <div className="clients-logos">
-            {clients.map((client, index) => (
-              <div
-                key={index}
-                className={`client-logo-wrapper ${
-                  index === currentClient.clientIndex ? 'active' : ''
-                }`}
-              >
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  className="client-logo"
-                />
-              </div>
-            ))}
+            <div className="logos-track">
+              {[...clients, ...clients].map((client, index) => (
+                <div
+                  key={`${client.name}-${index}`}
+                  className="client-logo-wrapper"
+                >
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className="client-logo"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

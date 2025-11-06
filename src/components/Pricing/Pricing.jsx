@@ -111,7 +111,7 @@ const Pricing = () => {
     {
       id: 'professional',
       name: t('pricing.professional.name'),
-      price: '800',
+      price: '850',
       period: t('pricing.period'),
       description: t('pricing.professional.description'),
       features: [

@@ -1,3 +1,19 @@
+.portfolio-viewport {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.portfolio-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s ease-in-out;
+  will-change: transform;
+}
+
+.portfolio-page {
+  flex: 0 0 100%;
+}
 .portfolio {
   background-color: #ffffff;
   position: relative;
@@ -5,6 +21,7 @@
 
 .portfolio-container {
   width: 100%;
+  position: relative;
 }
 
 .portfolio-title {
@@ -32,10 +49,10 @@
 
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(3, 336px);
-  gap: 116px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2.5rem;
   margin-top: 4rem;
-  justify-content: center;
+  align-items: start;
 }
 
 /* Анимация появления карточек */
@@ -46,8 +63,9 @@
   opacity: 0;
   transform: translateY(50px);
   cursor: pointer;
-  width: 336px;
-  height: 355px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 336 / 355;
   margin: 0;
   padding: 0;
 }
@@ -180,6 +198,77 @@
   box-shadow: 0 8px 20px rgba(236, 72, 153, 0.4);
 }
 
+/* Пагинация */
+.portfolio-pagination {
+  display: none;
+}
+
+.pagination-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(236, 72, 153, 0.25);
+  border: 1px solid rgba(236, 72, 153, 0.45);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.dot:hover {
+  transform: scale(1.15);
+  background: rgba(236, 72, 153, 0.4);
+}
+
+.dot.active {
+  background: #ec4899;
+  border-color: #ec4899;
+}
+
+/* Боковые стрелки для листания клиентов */
+.grid-nav {
+  position: absolute;
+  top: 58%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.08);
+  color: rgba(26, 26, 26, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(4px);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.grid-nav:focus { outline: none; box-shadow: none; }
+.grid-nav:focus-visible { outline: none; box-shadow: none; }
+
+.grid-prev { left: -1.25rem; }
+.grid-next { right: -1.25rem; }
+
+.grid-nav:hover {
+  background: rgba(236, 72, 153, 0.12);
+  color: #ec4899;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.grid-nav.hidden { display: none; }
+
 /* Модальное окно */
 .modal-overlay {
   position: fixed;
@@ -215,6 +304,33 @@
   position: relative;
   animation: slideUp 0.4s ease;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Навигация в модалке */
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.modal-prev { left: 1rem; }
+.modal-next { right: 1rem; }
+
+.modal-nav:hover {
+  background: #ec4899;
 }
 
 @keyframes slideUp {
@@ -315,8 +431,8 @@
 
 @media (max-width: 1200px) {
   .portfolio-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
     padding: 0 1rem;
   }
 
@@ -325,6 +441,14 @@
     height: auto;
     aspect-ratio: 336 / 355;
   }
+
+  .grid-nav {
+    width: 44px;
+    height: 44px;
+    font-size: 1.4rem;
+  }
+  .grid-prev { left: -1rem; }
+  .grid-next { right: -1rem; }
 }
 
 @media (max-width: 768px) {
@@ -337,8 +461,8 @@
   }
 
   .portfolio-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
     padding: 0;
   }
 
@@ -361,6 +485,20 @@
     margin: 1rem;
     border-radius: 15px;
   }
+
+  .modal-nav {
+    width: 38px;
+    height: 38px;
+    font-size: 1.6rem;
+  }
+
+  .grid-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+  }
+  .grid-prev { left: -0.5rem; }
+  .grid-next { right: -0.5rem; }
 
   .modal-image {
     height: 250px;
@@ -399,8 +537,22 @@
   }
 
   .portfolio-grid {
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
+
+  .grid-nav {
+    width: 38px;
+    height: 38px;
+    font-size: 1.2rem;
+  }
+  .grid-prev { left: 0rem; }
+  .grid-next { right: 0rem; }
+
+/* Анимации перелистывания страниц */
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-track { transition: none; }
+}
 
   .modal-overlay {
     padding: 0.5rem;
@@ -430,4 +582,36 @@
     font-size: 0.8rem;
     padding: 0.4rem 1rem;
   }
+}
+
+/* гарантируем анимацию и ширину страниц */
+.portfolio-viewport {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  /* чтобы горизонтальные жесты не конфликтовали со скроллом страницы */
+  touch-action: pan-y; 
+}
+
+.portfolio-track {
+  display: flex;
+  will-change: transform;
+  transition: transform 0.5s ease-in-out;
+}
+
+.portfolio-page {
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+/* На очень узких экранах сделаем сетку 1xN, чтобы карточки были крупнее */
+@media (max-width: 480px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr; /* уже есть у тебя, но убедимся */
+  }
+}
+
+/* отключение анимации при пользовательской настройке */
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-track { transition: none; }
 }
