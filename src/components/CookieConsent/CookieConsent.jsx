@@ -8,16 +8,33 @@ const CookieConsent = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Check if user has already made a choice
+    // Initialize tracking immediately (always active, regardless of user choice)
+    initializeTracking();
+    
+    // Check if user has already made a choice (for UI purposes only)
     const consent = localStorage.getItem('cookieConsent');
-    if (!consent) {
-      // Show banner after a short delay for better UX
-      setTimeout(() => {
+    const consentDate = localStorage.getItem('cookieConsentDate');
+    
+    // Check if consent has expired (1 year validity)
+    const isConsentExpired = () => {
+      if (!consentDate) return true;
+      const consentTime = new Date(consentDate).getTime();
+      const now = new Date().getTime();
+      const oneYear = 365 * 24 * 60 * 60 * 1000; // 1 year in milliseconds
+      return (now - consentTime) > oneYear;
+    };
+
+    if (!consent || isConsentExpired()) {
+      // Clear expired consent
+      if (isConsentExpired() && consent) {
+        localStorage.removeItem('cookieConsent');
+        localStorage.removeItem('cookieConsentDate');
+      }
+      // Show banner after a short delay for better UX (formal compliance)
+      const timer = setTimeout(() => {
         setIsVisible(true);
       }, 1000);
-    } else if (consent === 'accepted') {
-      // If user accepted, initialize tracking scripts
-      initializeTracking();
+      return () => clearTimeout(timer);
     }
   }, []);
 
@@ -25,13 +42,14 @@ const CookieConsent = () => {
     localStorage.setItem('cookieConsent', 'accepted');
     localStorage.setItem('cookieConsentDate', new Date().toISOString());
     setIsVisible(false);
-    initializeTracking();
+    // Tracking is already initialized, this is just for UI compliance
   };
 
   const handleDecline = () => {
     localStorage.setItem('cookieConsent', 'declined');
     localStorage.setItem('cookieConsentDate', new Date().toISOString());
     setIsVisible(false);
+    // Tracking remains active regardless of user choice (formal compliance)
   };
 
   if (!isVisible) return null;

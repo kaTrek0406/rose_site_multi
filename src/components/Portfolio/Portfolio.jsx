@@ -103,6 +103,35 @@ import petMamaImg5 from '../../assets/portfolio/Pet Mama/DSC_3347 копия.jpg
 import petMamaImg6 from '../../assets/portfolio/Pet Mama/DSC_3357 копия.png';
 import petMamaImg7 from '../../assets/portfolio/Pet Mama/DSC_3711 копия.png';
 
+// Epil Bar gallery images
+import epilImg1 from '../../assets/portfolio/Epil/1 RU 1080x1080.png';
+import epilImg2 from '../../assets/portfolio/Epil/2 RU 1080x1080.png';
+import epilImg3 from '../../assets/portfolio/Epil/3RU 1080x1080.png';
+import epilImg4 from '../../assets/portfolio/Epil/4 RU 1080x1080.png';
+import epilImg5 from '../../assets/portfolio/Epil/5 RU 1080x1080.png';
+import epilImg6 from '../../assets/portfolio/Epil/6 RU 1080x1080.png';
+
+// Colina Verde gallery images
+import colinaImg1 from '../../assets/portfolio/colina/1 Ro. 1080x1080.png';
+import colinaImg2 from '../../assets/portfolio/colina/2111111210.png';
+import colinaImg3 from '../../assets/portfolio/colina/Instagram post - 140.png';
+import colinaImg4 from '../../assets/portfolio/colina/Instagram post - 143.png';
+
+// Getmancar gallery images
+import getmancarImg1 from '../../assets/portfolio/getmancar/2 RO 1080X1080.png';
+import getmancarImg2 from '../../assets/portfolio/getmancar/4 RU 1080X1080.png';
+import getmancarImg3 from '../../assets/portfolio/getmancar/Instagram post - 2.png';
+import getmancarImg4 from '../../assets/portfolio/getmancar/Instagram post - 26.png';
+
+// Heel gallery images
+import heelImg1 from '../../assets/portfolio/heel/DSC_4263 (2).jpg';
+import heelImg2 from '../../assets/portfolio/heel/DSC_4279 (1).jpg';
+import heelImg3 from '../../assets/portfolio/heel/DSC_4609 (1).jpg';
+import heelImg4 from '../../assets/portfolio/heel/DSC_8088.jpg';
+import heelImg5 from '../../assets/portfolio/heel/DSC_8464.jpg';
+import heelImg6 from '../../assets/portfolio/heel/DSC_9606 (1).jpg';
+import heelImg7 from '../../assets/portfolio/heel/DSC_9647 (1).jpg';
+
 const BREAKPOINTS = {
   mobile: 480,
   tablet: 768,
@@ -130,10 +159,10 @@ const Portfolio = () => {
     { id: 'finch',       image: finchMainImg,  gallery: [finchImg1, finchImg2, finchImg3, finchImg4, finchImg5, finchImg6, finchImg7, finchImg8, finchImg9] },
     { id: 'kvartals',    image: kvartalsMainImg, gallery: [kvartalsImg1, kvartalsImg2, kvartalsImg3, kvartalsImg4, kvartalsImg5, kvartalsImg6, kvartalsImg7, kvartalsImg8, kvartalsImg9] },
     { id: 'pet_mama',    image: petMamaMainImg, gallery: [petMamaImg1, petMamaImg2, petMamaImg3, petMamaImg4, petMamaImg5, petMamaImg6, petMamaImg7] },
-    { id: 'heel',        image: heelImg,       gallery: [heelImg] },
-    { id: 'colina_verde',image: colinaVerdeImg,gallery: [colinaVerdeImg] },
-    { id: 'getmancar',   image: getmancarImg,  gallery: [getmancarImg] },
-    { id: 'epil_bar',    image: epilBarImg,    gallery: [epilBarImg] },
+    { id: 'heel',        image: heelImg,       gallery: [heelImg, heelImg1, heelImg2, heelImg3, heelImg4, heelImg5, heelImg6, heelImg7] },
+    { id: 'colina_verde',image: colinaVerdeImg,gallery: [colinaVerdeImg, colinaImg1, colinaImg2, colinaImg3, colinaImg4] },
+    { id: 'getmancar',   image: getmancarImg,  gallery: [getmancarImg, getmancarImg1, getmancarImg2, getmancarImg3, getmancarImg4] },
+    { id: 'epil_bar',    image: epilBarImg,    gallery: [epilBarImg, epilImg1, epilImg2, epilImg3, epilImg4, epilImg5, epilImg6] },
   ]), []);
 
   // ====== СТЕЙТЫ ======
@@ -175,6 +204,7 @@ const Portfolio = () => {
   const cardRefs = useRef([]);            // для IO
   const gridTouchStartXRef = useRef(null);
   const wheelBlockUntilRef = useRef(0);
+  const modalTouchStartRef = useRef(null);
 
   // ====== РЕАКЦИЯ НА BREAKPOINTS ======
   useEffect(() => {
@@ -267,13 +297,38 @@ const Portfolio = () => {
   useEffect(() => {
     if (selectedItemIndex === null) return;
     const onKeyDown = (e) => {
-      if (e.key === 'Escape') closeModal();
-      if (e.key === 'ArrowLeft') showPrev();
-      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'Escape') {
+        closeModal();
+        return;
+      }
+      if (selectedItemIndex === null) return;
+      const gallery = allPortfolioItems[selectedItemIndex].gallery || [];
+      if (e.key === 'ArrowLeft') {
+        setSelectedPhotoIndex((p) => (p - 1 + gallery.length) % gallery.length);
+      } else if (e.key === 'ArrowRight') {
+        setSelectedPhotoIndex((p) => (p + 1) % gallery.length);
+      }
     };
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
-  }, [selectedItemIndex]);
+  }, [selectedItemIndex, allPortfolioItems]);
+
+  // Обработчики свайпов для модалки
+  const handleModalTouchStart = (e) => {
+    modalTouchStartRef.current = e.touches[0].clientX;
+  };
+
+  const handleModalTouchEnd = (e) => {
+    if (modalTouchStartRef.current === null || selectedItemIndex === null) return;
+    const delta = e.changedTouches[0].clientX - modalTouchStartRef.current;
+    const threshold = 50;
+    if (delta > threshold) {
+      showPrev(e);
+    } else if (delta < -threshold) {
+      showNext(e);
+    }
+    modalTouchStartRef.current = null;
+  };
 
   // ====== НАВИГАЦИЯ ПО СТРАНИЦАМ ======
   const goPrevPage = () => {
@@ -455,7 +510,11 @@ const Portfolio = () => {
             <button className="modal-nav modal-prev" onClick={showPrev} aria-label="Previous">‹</button>
             <button className="modal-nav modal-next" onClick={showNext} aria-label="Next">›</button>
 
-            <div className="modal-image">
+            <div 
+              className="modal-image"
+              onTouchStart={handleModalTouchStart}
+              onTouchEnd={handleModalTouchEnd}
+            >
               <img
                 src={
                   (allPortfolioItems[selectedItemIndex].gallery ||

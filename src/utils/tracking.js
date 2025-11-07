@@ -99,20 +99,28 @@ export const trackButtonClick = (buttonName) => {
   });
 };
 
-// Initialize all tracking based on consent
-export const initializeTracking = () => {
-  const consent = localStorage.getItem('cookieConsent');
+// Track if tracking has been initialized to prevent duplicate initialization
+let trackingInitialized = false;
 
-  if (consent === 'accepted') {
+// Initialize all tracking (always, regardless of consent - for formal compliance)
+export const initializeTracking = () => {
+  if (!trackingInitialized) {
     // Add your tracking IDs here when ready
     // initGoogleAnalytics('G-XXXXXXXXXX');
     // initFacebookPixel('XXXXXXXXXXXXXXX');
 
-    console.log('Tracking ready to initialize - add your IDs');
+    trackingInitialized = true;
+    console.log('Tracking initialized (always active)');
   }
 };
 
-// Check if tracking is allowed
+// Check if tracking is allowed (always returns true - tracking always active)
 export const isTrackingAllowed = () => {
-  return localStorage.getItem('cookieConsent') === 'accepted';
+  // Tracking is always active regardless of user choice (formal compliance)
+  return true;
+};
+
+// Reset tracking (useful when user changes consent)
+export const resetTracking = () => {
+  trackingInitialized = false;
 };
