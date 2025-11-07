@@ -130,15 +130,35 @@
   border-radius: 20px;
   margin-bottom: 2rem;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1; /* Показываем по умолчанию */
+  transform: translateY(0);
   transition: all 0.6s ease;
+  animation: fadeInUp 0.6s ease forwards;
 }
 
 .workflow-simple-card.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Анимация появления */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Задержка для каждой карточки */
+.workflow-simple-card:nth-child(1) { animation-delay: 0.1s; }
+.workflow-simple-card:nth-child(2) { animation-delay: 0.2s; }
+.workflow-simple-card:nth-child(3) { animation-delay: 0.3s; }
+.workflow-simple-card:nth-child(4) { animation-delay: 0.4s; }
+.workflow-simple-card:nth-child(5) { animation-delay: 0.5s; }
 
 /* Адаптивность */
 @media (max-width: 1024px) {

@@ -20,6 +20,8 @@ const Workflow = () => {
   }, []);
 
   useEffect(() => {
+    if (!isMobile) return; // Не запускаем observer на десктопе
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -29,12 +31,19 @@ const Workflow = () => {
           }
         });
       },
-      { threshold: 0.15, rootMargin: '0px' }
+      { threshold: 0.05, rootMargin: '50px' } // Снижен порог и добавлен rootMargin
     );
 
-    cardRefs.current.forEach((ref) => ref && observer.observe(ref));
-    return () => observer.disconnect();
-  }, []);
+    // Небольшая задержка для корректной работы observer
+    const timer = setTimeout(() => {
+      cardRefs.current.forEach((ref) => ref && observer.observe(ref));
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, [isMobile]);
 
   const steps = [
     {
