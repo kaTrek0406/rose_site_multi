@@ -138,7 +138,7 @@ export const translations = {
 
     'portfolio.getmancar.title': 'GETMANCAR',
     'portfolio.getmancar.client': 'Getmancar Auto',
-    'portfolio.getmancar.description': 'Комплексное продвижение автосервиса Getmancar. Разработка фирменного стиля, создание сайта, ведение социальных сетей и запуск таргетированной рекламы. Проект значительно увеличил узнаваемость бренда в регионе.',
+    'portfolio.getmancar.description': 'Комплексное продвижение каршеринга Getmancar. Разработка фирменного стиля, создание стратегий в продвижение, уникальные банера и запуск таргетированной рекламы. Проект значительно увеличил узнаваемость бренда в регионе.',
     'portfolio.getmancar.year': '2024',
     'portfolio.getmancar.service1': 'Брендинг',
     'portfolio.getmancar.service2': 'Веб-дизайн',
@@ -146,7 +146,7 @@ export const translations = {
 
     'portfolio.epil_bar.title': 'EPIL BAR',
     'portfolio.epil_bar.client': 'Epil Bar Studio',
-    'portfolio.epil_bar.description': 'Создание яркого и запоминающегося образа для студии эпиляции Epil Bar. Разработка логотипа, фирменного стиля, дизайна интерьера и рекламных материалов. Проект получил признание в индустрии красоты.',
+    'portfolio.epil_bar.description': 'Epil bar — это не клиент, это любовь)\n\nМы работаем ну очень давно, некоторые агентства столько не живут даже.\n\nПрошли вместе 3 раза изменение концепта ведения, сотни съемок, тысячи одобренных постов.\n\nВместе следили как интересно нас копируют, воруют идеи, цвета, фотографиии.\n\nЗадача — быть крутыми, делать дерзкий контент, писать так, чтобы запоминалось, снимать так, чтобы не как у всех!\n\nСделали!\n\nГордимся!',
     'portfolio.epil_bar.year': '2023',
     'portfolio.epil_bar.service1': 'Брендинг',
     'portfolio.epil_bar.service2': 'Дизайн интерьера',
@@ -411,7 +411,7 @@ export const translations = {
 
     'portfolio.getmancar.title': 'GETMANCAR',
     'portfolio.getmancar.client': 'Getmancar Auto',
-    'portfolio.getmancar.description': 'Promovare complexă a service-ului auto Getmancar. Dezvoltarea stilului corporativ, crearea site-ului, gestionarea rețelelor sociale și lansarea publicității țintite. Proiectul a crescut semnificativ recunoașterea brandului în regiune.',
+    'portfolio.getmancar.description': 'Promovare complexă a car-sharing-ului Getmancar. Dezvoltarea stilului corporativ, crearea strategiilor de promovare, bannere unice și lansarea publicității țintite. Proiectul a crescut semnificativ recunoașterea brandului în regiune.',
     'portfolio.getmancar.year': '2024',
     'portfolio.getmancar.service1': 'Branding',
     'portfolio.getmancar.service2': 'Web Design',
@@ -419,7 +419,7 @@ export const translations = {
 
     'portfolio.epil_bar.title': 'EPIL BAR',
     'portfolio.epil_bar.client': 'Epil Bar Studio',
-    'portfolio.epil_bar.description': 'Crearea unei imagini strălucitoare și memorabile pentru studioul de epilare Epil Bar. Dezvoltarea logo-ului, stilului corporativ, designului interior și materialelor publicitare. Proiectul a primit recunoaștere în industria frumuseții.',
+    'portfolio.epil_bar.description': 'Epil bar — nu este un client, este iubire)\n\nLucrăm de foarte mult timp, unele agenții nici măcar nu trăiesc atât de mult.\n\nAm trecut împreună prin 3 schimbări de concept de management, sute de sesiuni foto, mii de postări aprobate.\n\nAm urmărit împreună cum ne copiază interesant, fura idei, culori, fotografii.\n\nSarcina — să fim tari, să facem conținut îndrăzneț, să scriem astfel încât să fie memorabil, să fotografiem astfel încât să nu fie ca la toți!\n\nAm făcut!\n\nNe mândrim!',
     'portfolio.epil_bar.year': '2023',
     'portfolio.epil_bar.service1': 'Branding',
     'portfolio.epil_bar.service2': 'Design interior',

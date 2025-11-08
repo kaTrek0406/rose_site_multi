@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import './Portfolio.css';
 
@@ -244,28 +244,41 @@ const Portfolio = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const idx = parseInt(entry.target.dataset.absindex, 10);
-            setVisibleCards((prev) => (prev.includes(idx) ? prev : [...prev, idx]));
+            if (!isNaN(idx)) {
+              setVisibleCards((prev) => {
+                if (prev.includes(idx)) return prev;
+                return [...prev, idx];
+              });
+            }
           }
         });
       },
       {
-        root,                // ВАЖНО: наблюдаем внутри viewport, а не всего окна
-        threshold: 0.15,
-        rootMargin: '120px'  // даём форы, чтобы появлялись заранее
+        root: null,  // наблюдаем относительно viewport окна для стабильности
+        threshold: 0.1,
+        rootMargin: '50px'
       }
     );
 
-    cardRefs.current.forEach((node) => node && io.observe(node));
-    return () => io.disconnect();
-  }, [extendedPages, itemsPerPage]);
+    const nodes = cardRefs.current.filter(Boolean);
+    nodes.forEach((node) => io.observe(node));
+    
+    return () => {
+      nodes.forEach((node) => io.unobserve(node));
+      io.disconnect();
+    };
+  }, [extendedPages.length]);
 
   // ====== Сразу подсветить текущую (стартовую) страницу ======
   useEffect(() => {
     if (totalItems === 0) return;
     const start = (currentPage * itemsPerPage) % totalItems;
-    const firstPageIdxs = Array.from({ length: itemsPerPage }, (_, i) => (start + i) % totalItems);
-    setVisibleCards((prev) => Array.from(new Set([...prev, ...firstPageIdxs])));
-  }, [itemsPerPage, totalItems, currentPage]);
+    const firstPageIdxs = Array.from({ length: Math.min(itemsPerPage, totalItems) }, (_, i) => (start + i) % totalItems);
+    setVisibleCards((prev) => {
+      const combined = [...prev, ...firstPageIdxs];
+      return Array.from(new Set(combined));
+    });
+  }, [itemsPerPage, totalItems]);
 
   // ====== МОДАЛКА ======
   const handleCardClick = (indexOnPage) => {
@@ -280,19 +293,27 @@ const Portfolio = () => {
     setSelectedPhotoIndex(0);
   };
 
-  const showPrev = (e) => {
-    if (e) e.stopPropagation();
+  const showPrev = useCallback((e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     if (selectedItemIndex === null) return;
     const gallery = allPortfolioItems[selectedItemIndex].gallery || [];
+    if (gallery.length === 0) return;
     setSelectedPhotoIndex((p) => (p - 1 + gallery.length) % gallery.length);
-  };
+  }, [selectedItemIndex, allPortfolioItems]);
 
-  const showNext = (e) => {
-    if (e) e.stopPropagation();
+  const showNext = useCallback((e) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     if (selectedItemIndex === null) return;
     const gallery = allPortfolioItems[selectedItemIndex].gallery || [];
+    if (gallery.length === 0) return;
     setSelectedPhotoIndex((p) => (p + 1) % gallery.length);
-  };
+  }, [selectedItemIndex, allPortfolioItems]);
 
   useEffect(() => {
     if (selectedItemIndex === null) return;
@@ -457,6 +478,7 @@ const Portfolio = () => {
                           ref={(el) => (cardRefs.current[absIndex] = el)}
                           data-absindex={absIndex}
                           className={`portfolio-card ${visibleCards.includes(absIndex) ? 'visible' : ''}`}
+                          style={{ willChange: visibleCards.includes(absIndex) ? 'auto' : 'opacity, transform' }}
                           onClick={() => handleCardClick(indexOnPage)}
                         >
                           <div className="portfolio-image-wrapper">
@@ -464,9 +486,9 @@ const Portfolio = () => {
                               src={(item.gallery && item.gallery[0]) || item.image}
                               alt={title}
                               className="portfolio-image"
-                              loading={pageIdx === 1 ? "eager" : "lazy"}
+                              loading={pageIdx === 1 && indexOnPage < 4 ? "eager" : "lazy"}
                               decoding="async"
-                              fetchpriority={pageIdx === 1 ? "high" : "low"}
+                              fetchpriority={pageIdx === 1 && indexOnPage < 2 ? "high" : "auto"}
                             />
                             <div className="portfolio-overlay">
                               <h3 className="portfolio-item-title">{title}</h3>
