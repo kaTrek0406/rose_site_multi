@@ -1,5 +1,5 @@
 {
-  "name": "rose-landing",
+  "name": "Rose Creative — Digital & SMM Agency",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,6 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
+    "start": "vite preview --host 0.0.0.0 --port $PORT",
     "deploy": "vite build && gh-pages -d dist"
   },
   "dependencies": {
