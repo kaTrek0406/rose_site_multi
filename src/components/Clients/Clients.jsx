@@ -2,14 +2,6 @@ import { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import './Clients.css';
 
-// Import client logos (SVG для идеального качества)
-import cdHomeLogo from '../../assets/clients/cdi home.svg';
-import colinaVerdeLogo from '../../assets/clients/cokina_verde.svg';
-import jomaLogo from '../../assets/clients/joma.svg';
-import epilBarLogo from '../../assets/clients/epilbar.svg';
-import golbanTradeLogo from '../../assets/clients/golban trade.svg';
-import getmancarLogo from '../../assets/clients/getmancarr.svg';
-
 const Clients = () => {
   const { t } = useLanguage();
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -54,12 +46,12 @@ const Clients = () => {
   ];
 
   const clients = [
-    { name: 'CD Home', logo: cdHomeLogo },
-    { name: 'Colina Verde', logo: colinaVerdeLogo },
-    { name: 'Joma', logo: jomaLogo },
-    { name: 'Epil Bar', logo: epilBarLogo },
-    { name: 'Golban Trade', logo: golbanTradeLogo },
-    { name: 'Getmancar', logo: getmancarLogo }
+    { name: 'CD Home', logo: '/assets/clients/cdi home.svg' },
+    { name: 'Colina Verde', logo: '/assets/clients/cokina_verde.svg' },
+    { name: 'Joma', logo: '/assets/clients/joma.svg' },
+    { name: 'Epil Bar', logo: '/assets/clients/epilbar.svg' },
+    { name: 'Golban Trade', logo: '/assets/clients/golban trade.svg' },
+    { name: 'Getmancar', logo: '/assets/clients/getmancarr.svg' }
   ];
 
   const handlePrevTestimonial = () => {

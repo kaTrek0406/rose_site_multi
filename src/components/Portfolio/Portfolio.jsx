@@ -1,136 +1,7 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import portfolioData from '../../data/portfolioData.json';
 import './Portfolio.css';
-
-import golbanTradeImg from '../../assets/portfolio/golban.svg';
-import jomaImg from '../../assets/portfolio/joma1.svg';
-import heelImg from '../../assets/portfolio/heel1.svg';
-import colinaVerdeImg from '../../assets/portfolio/colina.svg';
-import getmancarImg from '../../assets/portfolio/getman.svg';
-import epilBarImg from '../../assets/portfolio/epil.svg';
-
-// Joma gallery images
-import jomaImg1 from '../../assets/portfolio/Joma/Artboard 2.png';
-import jomaImg2 from '../../assets/portfolio/Joma/Artboard 4.png';
-import jomaImg3 from '../../assets/portfolio/Joma/Artboard 6.png';
-import jomaImg4 from '../../assets/portfolio/Joma/Artboard 8.png';
-import jomaImg5 from '../../assets/portfolio/Joma/Artboard 9 (1).png';
-import jomaImg6 from '../../assets/portfolio/Joma/DSC02905 копия 2.png';
-import jomaImg7 from '../../assets/portfolio/Joma/DSC02978 копия.png';
-import jomaImg8 from '../../assets/portfolio/Joma/DSC03117 копия 3.png';
-import jomaImg9 from '../../assets/portfolio/Joma/Yandex.Disk.2.png';
-
-// Golban Trade gallery images
-import golbanImg1 from '../../assets/portfolio/Golban Trade/2025-01-17 08.58.52.jpg';
-import golbanImg2 from '../../assets/portfolio/Golban Trade/2025-01-17 08.59.31.jpg';
-import golbanImg3 from '../../assets/portfolio/Golban Trade/2025-01-17 08.59.56.jpg';
-import golbanImg4 from '../../assets/portfolio/Golban Trade/2025-01-17 09.00.10.jpg';
-
-// Kerashop images
-import kerashopMainImg from '../../assets/portfolio/Kerashop/2025-11-05 17.50.53.png';
-import kerashopImg1 from '../../assets/portfolio/Kerashop/2025-11-05 17.50.53.png';
-import kerashopImg2 from '../../assets/portfolio/Kerashop/DSC_1413 копия.jpg';
-import kerashopImg3 from '../../assets/portfolio/Kerashop/DSC_5596.png';
-import kerashopImg4 from '../../assets/portfolio/Kerashop/DSC_5876.png';
-import kerashopImg5 from '../../assets/portfolio/Kerashop/DSC_6051.png';
-import kerashopImg6 from '../../assets/portfolio/Kerashop/DSC_6105.png';
-
-// JBL Store images
-import jblMainImg from '../../assets/portfolio/JBL/DSC_4461 копия (1).jpg';
-import jblImg1 from '../../assets/portfolio/JBL/DSC_4461 копия (1).jpg';
-import jblImg2 from '../../assets/portfolio/JBL/DSC_4531.jpg';
-import jblImg3 from '../../assets/portfolio/JBL/DSC_5736-копия.jpg';
-import jblImg4 from '../../assets/portfolio/JBL/DSC_6959.jpg';
-import jblImg5 from '../../assets/portfolio/JBL/DSC_8367 копия 2.jpg';
-import jblImg6 from '../../assets/portfolio/JBL/DSC_8374 копия.jpg';
-import jblImg7 from '../../assets/portfolio/JBL/IMG_9598.JPEG';
-import jblImg8 from '../../assets/portfolio/JBL/Снимок экрана 2023-10-31 в 13.31.50.png';
-import jblImg9 from '../../assets/portfolio/JBL/Снимок экрана 2023-10-31 в 13.32.07.png';
-import jblImg10 from '../../assets/portfolio/JBL/Снимок экрана 2023-10-31 в 13.32.20.png';
-
-// Radler images
-import radlerMainImg from '../../assets/portfolio/radler/3.jpg';
-import radlerImg1 from '../../assets/portfolio/radler/3.jpg';
-import radlerImg2 from '../../assets/portfolio/radler/8.jpg';
-import radlerImg3 from '../../assets/portfolio/radler/DSC_2695 копия (1).png';
-import radlerImg4 from '../../assets/portfolio/radler/DSC_2734 копия 2 (1) копия (1).png';
-import radlerImg5 from '../../assets/portfolio/radler/DSC_44700.png';
-import radlerImg6 from '../../assets/portfolio/radler/DSC_5457-(1).png';
-import radlerImg7 from '../../assets/portfolio/radler/DSC_8656.png';
-
-// Cocosecret images
-import cocosecretMainImg from '../../assets/portfolio/cocosecret/1.jpg';
-import cocosecretImg1 from '../../assets/portfolio/cocosecret/1.jpg';
-import cocosecretImg2 from '../../assets/portfolio/cocosecret/2025-11-06 13.52.58.png';
-import cocosecretImg3 from '../../assets/portfolio/cocosecret/DSC_6546.jpg';
-import cocosecretImg4 from '../../assets/portfolio/cocosecret/DSC_6597.jpg';
-import cocosecretImg5 from '../../assets/portfolio/cocosecret/DSC_6611.jpg';
-import cocosecretImg6 from '../../assets/portfolio/cocosecret/DSC_6867.jpg';
-import cocosecretImg7 from '../../assets/portfolio/cocosecret/DSC_6967.jpg';
-import cocosecretImg8 from '../../assets/portfolio/cocosecret/DSC_7013.jpg';
-
-// Finch images
-import finchMainImg from '../../assets/portfolio/Finch/DSC_4832.jpg';
-import finchImg1 from '../../assets/portfolio/Finch/DSC_12655.png';
-import finchImg2 from '../../assets/portfolio/Finch/DSC_2147.png';
-import finchImg3 from '../../assets/portfolio/Finch/DSC_2194.png';
-import finchImg4 from '../../assets/portfolio/Finch/DSC_4832.jpg';
-import finchImg5 from '../../assets/portfolio/Finch/DSC_4941.png';
-import finchImg6 from '../../assets/portfolio/Finch/DSC_7738.png';
-import finchImg7 from '../../assets/portfolio/Finch/DSC_9187.png';
-import finchImg8 from '../../assets/portfolio/Finch/finch  копия 3 (1).png';
-import finchImg9 from '../../assets/portfolio/Finch/руки_с_бутылкой_восстановлено_копия.png';
-
-// Kvartals images
-import kvartalsMainImg from '../../assets/portfolio/Kvartals/1r.png';
-import kvartalsImg1 from '../../assets/portfolio/Kvartals/1r.png';
-import kvartalsImg2 from '../../assets/portfolio/Kvartals/8 (1).png';
-import kvartalsImg3 from '../../assets/portfolio/Kvartals/DSC05472 копия.png';
-import kvartalsImg4 from '../../assets/portfolio/Kvartals/DSC05599.png';
-import kvartalsImg5 from '../../assets/portfolio/Kvartals/DSC_6581.png';
-import kvartalsImg6 from '../../assets/portfolio/Kvartals/DSC_6618.png';
-import kvartalsImg7 from '../../assets/portfolio/Kvartals/DSC_6650.png';
-import kvartalsImg8 from '../../assets/portfolio/Kvartals/IMG_20221012_191036_825.png';
-import kvartalsImg9 from '../../assets/portfolio/Kvartals/красный.jpg';
-
-// Pet Mama images
-import petMamaMainImg from '../../assets/portfolio/Pet Mama/DSC_3214 копия.jpg';
-import petMamaImg1 from '../../assets/portfolio/Pet Mama/DSC_3214 копия.jpg';
-import petMamaImg2 from '../../assets/portfolio/Pet Mama/DSC_3297 копия.jpg';
-import petMamaImg3 from '../../assets/portfolio/Pet Mama/DSC_3313 копия.jpg';
-import petMamaImg4 from '../../assets/portfolio/Pet Mama/DSC_3325 копия.jpg';
-import petMamaImg5 from '../../assets/portfolio/Pet Mama/DSC_3347 копия.jpg';
-import petMamaImg6 from '../../assets/portfolio/Pet Mama/DSC_3357 копия.png';
-import petMamaImg7 from '../../assets/portfolio/Pet Mama/DSC_3711 копия.png';
-
-// Epil Bar gallery images
-import epilImg1 from '../../assets/portfolio/Epil/1 RU 1080x1080.png';
-import epilImg2 from '../../assets/portfolio/Epil/2 RU 1080x1080.png';
-import epilImg3 from '../../assets/portfolio/Epil/3RU 1080x1080.png';
-import epilImg4 from '../../assets/portfolio/Epil/4 RU 1080x1080.png';
-import epilImg5 from '../../assets/portfolio/Epil/5 RU 1080x1080.png';
-import epilImg6 from '../../assets/portfolio/Epil/6 RU 1080x1080.png';
-
-// Colina Verde gallery images
-import colinaImg1 from '../../assets/portfolio/colina/1 Ro. 1080x1080.png';
-import colinaImg2 from '../../assets/portfolio/colina/2111111210.png';
-import colinaImg3 from '../../assets/portfolio/colina/Instagram post - 140.png';
-import colinaImg4 from '../../assets/portfolio/colina/Instagram post - 143.png';
-
-// Getmancar gallery images
-import getmancarImg1 from '../../assets/portfolio/getmancar/2 RO 1080X1080.png';
-import getmancarImg2 from '../../assets/portfolio/getmancar/4 RU 1080X1080.png';
-import getmancarImg3 from '../../assets/portfolio/getmancar/Instagram post - 2.png';
-import getmancarImg4 from '../../assets/portfolio/getmancar/Instagram post - 26.png';
-
-// Heel gallery images
-import heelImg1 from '../../assets/portfolio/heel/DSC_4263 (2).jpg';
-import heelImg2 from '../../assets/portfolio/heel/DSC_4279 (1).jpg';
-import heelImg3 from '../../assets/portfolio/heel/DSC_4609 (1).jpg';
-import heelImg4 from '../../assets/portfolio/heel/DSC_8088.jpg';
-import heelImg5 from '../../assets/portfolio/heel/DSC_8464.jpg';
-import heelImg6 from '../../assets/portfolio/heel/DSC_9606 (1).jpg';
-import heelImg7 from '../../assets/portfolio/heel/DSC_9647 (1).jpg';
 
 const BREAKPOINTS = {
   mobile: 480,
@@ -149,21 +20,13 @@ const Portfolio = () => {
   const { t } = useLanguage();
 
   // ====== ДАННЫЕ ======
-  const allPortfolioItems = useMemo(() => ([
-    { id: 'golban_trade', image: golbanTradeImg, gallery: [golbanImg1, golbanImg2, golbanImg3, golbanImg4] },
-    { id: 'joma',        image: jomaImg,       gallery: [jomaImg1, jomaImg2, jomaImg3, jomaImg4, jomaImg5, jomaImg6, jomaImg7, jomaImg8, jomaImg9] },
-    { id: 'kerashop',    image: kerashopMainImg, gallery: [kerashopImg1, kerashopImg2, kerashopImg3, kerashopImg4, kerashopImg5, kerashopImg6] },
-    { id: 'jbl_store',   image: jblMainImg,    gallery: [jblImg1, jblImg2, jblImg3, jblImg4, jblImg5, jblImg6, jblImg7, jblImg8, jblImg9, jblImg10] },
-    { id: 'radler',      image: radlerMainImg, gallery: [radlerImg1, radlerImg2, radlerImg3, radlerImg4, radlerImg5, radlerImg6, radlerImg7] },
-    { id: 'cocosecret',  image: cocosecretMainImg, gallery: [cocosecretImg1, cocosecretImg2, cocosecretImg3, cocosecretImg4, cocosecretImg5, cocosecretImg6, cocosecretImg7, cocosecretImg8] },
-    { id: 'finch',       image: finchMainImg,  gallery: [finchImg1, finchImg2, finchImg3, finchImg4, finchImg5, finchImg6, finchImg7, finchImg8, finchImg9] },
-    { id: 'kvartals',    image: kvartalsMainImg, gallery: [kvartalsImg1, kvartalsImg2, kvartalsImg3, kvartalsImg4, kvartalsImg5, kvartalsImg6, kvartalsImg7, kvartalsImg8, kvartalsImg9] },
-    { id: 'pet_mama',    image: petMamaMainImg, gallery: [petMamaImg1, petMamaImg2, petMamaImg3, petMamaImg4, petMamaImg5, petMamaImg6, petMamaImg7] },
-    { id: 'heel',        image: heelImg,       gallery: [heelImg, heelImg1, heelImg2, heelImg3, heelImg4, heelImg5, heelImg6, heelImg7] },
-    { id: 'colina_verde',image: colinaVerdeImg,gallery: [colinaVerdeImg, colinaImg1, colinaImg2, colinaImg3, colinaImg4] },
-    { id: 'getmancar',   image: getmancarImg,  gallery: [getmancarImg, getmancarImg1, getmancarImg2, getmancarImg3, getmancarImg4] },
-    { id: 'epil_bar',    image: epilBarImg,    gallery: [epilBarImg, epilImg1, epilImg2, epilImg3, epilImg4, epilImg5, epilImg6] },
-  ]), []);
+  const allPortfolioItems = useMemo(() =>
+    portfolioData.portfolioItems.map(item => ({
+      id: item.id,
+      image: item.mainImage,
+      gallery: item.gallery
+    }))
+  , []);
 
   // ====== СТЕЙТЫ ======
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);

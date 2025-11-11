@@ -1,45 +1,37 @@
 import { useLanguage } from '../../contexts/LanguageContext';
 import './Services.css';
 
-// Import service icons
-import smmIcon from '../../assets/services/smm.png';
-import designIcon from '../../assets/services/design.png';
-import photoIcon from '../../assets/services/photo.png';
-import targetIcon from '../../assets/services/target.png';
-import videoIcon from '../../assets/services/video.png';
-import ilustrationIcon from '../../assets/services/ilustration.png';
-
 const Services = () => {
   const { t } = useLanguage();
 
   const services = [
     {
-      icon: smmIcon,
+      icon: '/assets/services/smm.webp',
       titleKey: 'services.smm.title',
       descriptionKey: 'services.smm.description'
     },
     {
-      icon: designIcon,
+      icon: '/assets/services/design.webp',
       titleKey: 'services.design.title',
       descriptionKey: 'services.design.description'
     },
     {
-      icon: photoIcon,
+      icon: '/assets/services/photo.webp',
       titleKey: 'services.photo.title',
       descriptionKey: 'services.photo.description'
     },
     {
-      icon: targetIcon,
+      icon: '/assets/services/target.webp',
       titleKey: 'services.target.title',
       descriptionKey: 'services.target.description'
     },
     {
-      icon: videoIcon,
+      icon: '/assets/services/video.webp',
       titleKey: 'services.video.title',
       descriptionKey: 'services.video.description'
     },
     {
-      icon: ilustrationIcon,
+      icon: '/assets/services/ilustration.webp',
       titleKey: 'services.illustration.title',
       descriptionKey: 'services.illustration.description'
     }

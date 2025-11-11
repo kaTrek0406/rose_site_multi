@@ -4,7 +4,6 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { sendToTelegram } from '../../services/telegramService';
 import SuccessNotification from '../SuccessNotification/SuccessNotification';
 import './Hero.css';
-import roseLogo from '../../assets/logo/rose-logo.png';
 
 const enableDepth = false; // ← поставь false, чтобы полностью отключить 3D-эффект
 
@@ -216,7 +215,7 @@ const handleInputChange = (e) => {
         }}
       >
         <div className="hero-logo">
-          <img src={roseLogo} alt="ROSÉ Logo" className="hero-logo-image" />
+          <img src="/assets/logo/rose-logo.webp" alt="ROSÉ Logo" className="hero-logo-image" loading="eager" fetchpriority="high" width="300" height="300" />
         </div>
         <h2 className="hero-title">{t('hero.title')}</h2>
         <p className="hero-subtitle">

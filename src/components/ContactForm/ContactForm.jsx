@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { sendToTelegram } from '../../services/telegramService';
+import { trackEvent } from '../../utils/tracking';
 import SuccessNotification from '../SuccessNotification/SuccessNotification';
 import './ContactForm.css';
 
@@ -57,9 +58,17 @@ const handleChange = (e) => {
     const result = await sendToTelegram(telegramData);
 
     if (result.success) {
+      // Track successful lead submission
+      trackEvent('Lead', {
+        content_name: 'Contact Form',
+        content_category: 'contact',
+        value: 1.00,
+        currency: 'USD'
+      });
+
       setFormData({
         name: '',
-        phone: '',
+        phone: '+373',
         email: '',
         message: ''
       });

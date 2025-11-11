@@ -1,38 +1,66 @@
-import { useState } from 'react';
+import { lazy, Suspense } from 'react';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Header from './components/Header/Header';
 import Hero from './components/Hero/Hero';
-import Services from './components/Services/Services';
-import Workflow from './components/Workflow/Workflow';
-import Portfolio from './components/Portfolio/Portfolio';
-import Pricing from './components/Pricing/Pricing';
-import Clients from './components/Clients/Clients';
-import ContactForm from './components/ContactForm/ContactForm';
-import Footer from './components/Footer/Footer';
-import Loader from './components/Loader/Loader';
 import CookieConsent from './components/CookieConsent/CookieConsent';
 import './App.css';
 
+// Lazy load тяжелые компоненты
+const Services = lazy(() => import('./components/Services/Services'));
+const Workflow = lazy(() => import('./components/Workflow/Workflow'));
+const Portfolio = lazy(() => import('./components/Portfolio/Portfolio'));
+const Pricing = lazy(() => import('./components/Pricing/Pricing'));
+const Clients = lazy(() => import('./components/Clients/Clients'));
+const ContactForm = lazy(() => import('./components/ContactForm/ContactForm'));
+const Footer = lazy(() => import('./components/Footer/Footer'));
+
+// Минимальный лоадер
+const Fallback = () => (
+  <div style={{
+    minHeight: '200px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'white'
+  }}>
+    <div style={{
+      width: '40px',
+      height: '40px',
+      border: '3px solid rgba(255,255,255,0.2)',
+      borderTop: '3px solid white',
+      borderRadius: '50%',
+      animation: 'spin 1s linear infinite'
+    }} />
+  </div>
+);
+
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-  };
-
   return (
     <LanguageProvider>
-      {isLoading && <Loader onLoadingComplete={handleLoadingComplete} />}
-      <div className="app" style={{ opacity: isLoading ? 0 : 1, transition: 'opacity 0.5s ease' }}>
+      <div className="app">
         <Header />
         <Hero />
-        <Services />
-        <Workflow />
-        <Portfolio />
-        <Pricing />
-        <Clients />
-        <ContactForm />
-        <Footer />
+        <Suspense fallback={<Fallback />}>
+          <Services />
+        </Suspense>
+        <Suspense fallback={<Fallback />}>
+          <Workflow />
+        </Suspense>
+        <Suspense fallback={<Fallback />}>
+          <Portfolio />
+        </Suspense>
+        <Suspense fallback={<Fallback />}>
+          <Pricing />
+        </Suspense>
+        <Suspense fallback={<Fallback />}>
+          <Clients />
+        </Suspense>
+        <Suspense fallback={<Fallback />}>
+          <ContactForm />
+        </Suspense>
+        <Suspense fallback={<Fallback />}>
+          <Footer />
+        </Suspense>
         <CookieConsent />
       </div>
     </LanguageProvider>

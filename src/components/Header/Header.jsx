@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import './Header.css';
-import languageIcon from '../../assets/icons/language.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +20,7 @@ const Header = () => {
       <div className="header-container">
         <div className="logo" onClick={toggleLanguage}>
           <span className="logo-text">{language === 'ru' ? 'RU' : 'RO'}</span>
-          <img src={languageIcon} alt="Language" className="logo-icon" />
+          <img src="/assets/icons/language.webp" alt="Language" className="logo-icon" width="24" height="24" loading="eager" />
         </div>
 
         <button className="burger-menu" onClick={toggleMenu} aria-label="Toggle menu">

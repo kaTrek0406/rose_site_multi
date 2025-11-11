@@ -1,0 +1,176 @@
+{
+  "portfolioItems": [
+    {
+      "id": "golban_trade",
+      "mainImage": "/assets/portfolio/golban.svg",
+      "gallery": [
+        "/assets/portfolio/Golban Trade/2025-01-17 08.58.52.webp",
+        "/assets/portfolio/Golban Trade/2025-01-17 08.59.31.webp",
+        "/assets/portfolio/Golban Trade/2025-01-17 08.59.56.webp",
+        "/assets/portfolio/Golban Trade/2025-01-17 09.00.10.webp"
+      ]
+    },
+    {
+      "id": "joma",
+      "mainImage": "/assets/portfolio/joma1.svg",
+      "gallery": [
+        "/assets/portfolio/Joma/Artboard 2.webp",
+        "/assets/portfolio/Joma/Artboard 4.webp",
+        "/assets/portfolio/Joma/Artboard 6.webp",
+        "/assets/portfolio/Joma/Artboard 8.webp",
+        "/assets/portfolio/Joma/Artboard 9 (1).webp",
+        "/assets/portfolio/Joma/DSC02905 копия 2.webp",
+        "/assets/portfolio/Joma/DSC02978 копия.webp",
+        "/assets/portfolio/Joma/DSC03117 копия 3.webp",
+        "/assets/portfolio/Joma/Yandex.Disk.2.webp"
+      ]
+    },
+    {
+      "id": "kerashop",
+      "mainImage": "/assets/portfolio/Kerashop/2025-11-05 17.50.53.webp",
+      "gallery": [
+        "/assets/portfolio/Kerashop/2025-11-05 17.50.53.webp",
+        "/assets/portfolio/Kerashop/DSC_1413 копия.webp",
+        "/assets/portfolio/Kerashop/DSC_5596.webp",
+        "/assets/portfolio/Kerashop/DSC_5876.webp",
+        "/assets/portfolio/Kerashop/DSC_6051.webp",
+        "/assets/portfolio/Kerashop/DSC_6105.webp"
+      ]
+    },
+    {
+      "id": "jbl_store",
+      "mainImage": "/assets/portfolio/JBL/DSC_4461 копия (1).webp",
+      "gallery": [
+        "/assets/portfolio/JBL/DSC_4461 копия (1).webp",
+        "/assets/portfolio/JBL/DSC_4531.webp",
+        "/assets/portfolio/JBL/DSC_5736-копия.webp",
+        "/assets/portfolio/JBL/DSC_6959.webp",
+        "/assets/portfolio/JBL/DSC_8367 копия 2.webp",
+        "/assets/portfolio/JBL/DSC_8374 копия.webp",
+        "/assets/portfolio/JBL/IMG_9598.JPEG",
+        "/assets/portfolio/JBL/Снимок экрана 2023-10-31 в 13.31.50.webp",
+        "/assets/portfolio/JBL/Снимок экрана 2023-10-31 в 13.32.07.webp",
+        "/assets/portfolio/JBL/Снимок экрана 2023-10-31 в 13.32.20.webp"
+      ]
+    },
+    {
+      "id": "radler",
+      "mainImage": "/assets/portfolio/radler/3.webp",
+      "gallery": [
+        "/assets/portfolio/radler/3.webp",
+        "/assets/portfolio/radler/8.webp",
+        "/assets/portfolio/radler/DSC_2695 копия (1).webp",
+        "/assets/portfolio/radler/DSC_2734 копия 2 (1) копия (1).webp",
+        "/assets/portfolio/radler/DSC_44700.webp",
+        "/assets/portfolio/radler/DSC_5457-(1).webp",
+        "/assets/portfolio/radler/DSC_8656.webp"
+      ]
+    },
+    {
+      "id": "cocosecret",
+      "mainImage": "/assets/portfolio/cocosecret/1.webp",
+      "gallery": [
+        "/assets/portfolio/cocosecret/1.webp",
+        "/assets/portfolio/cocosecret/2025-11-06 13.52.58.webp",
+        "/assets/portfolio/cocosecret/DSC_6546.webp",
+        "/assets/portfolio/cocosecret/DSC_6597.webp",
+        "/assets/portfolio/cocosecret/DSC_6611.webp",
+        "/assets/portfolio/cocosecret/DSC_6867.webp",
+        "/assets/portfolio/cocosecret/DSC_6967.webp",
+        "/assets/portfolio/cocosecret/DSC_7013.webp"
+      ]
+    },
+    {
+      "id": "finch",
+      "mainImage": "/assets/portfolio/Finch/DSC_4832.webp",
+      "gallery": [
+        "/assets/portfolio/Finch/DSC_12655.webp",
+        "/assets/portfolio/Finch/DSC_2147.webp",
+        "/assets/portfolio/Finch/DSC_2194.webp",
+        "/assets/portfolio/Finch/DSC_4832.webp",
+        "/assets/portfolio/Finch/DSC_4941.webp",
+        "/assets/portfolio/Finch/DSC_7738.webp",
+        "/assets/portfolio/Finch/DSC_9187.webp",
+        "/assets/portfolio/Finch/finch  копия 3 (1).webp",
+        "/assets/portfolio/Finch/руки_с_бутылкой_восстановлено_копия.webp"
+      ]
+    },
+    {
+      "id": "kvartals",
+      "mainImage": "/assets/portfolio/Kvartals/1r.webp",
+      "gallery": [
+        "/assets/portfolio/Kvartals/1r.webp",
+        "/assets/portfolio/Kvartals/8 (1).webp",
+        "/assets/portfolio/Kvartals/DSC05472 копия.webp",
+        "/assets/portfolio/Kvartals/DSC05599.webp",
+        "/assets/portfolio/Kvartals/DSC_6581.webp",
+        "/assets/portfolio/Kvartals/DSC_6618.webp",
+        "/assets/portfolio/Kvartals/DSC_6650.webp",
+        "/assets/portfolio/Kvartals/IMG_20221012_191036_825.webp",
+        "/assets/portfolio/Kvartals/красный.webp"
+      ]
+    },
+    {
+      "id": "pet_mama",
+      "mainImage": "/assets/portfolio/Pet Mama/DSC_3214 копия.webp",
+      "gallery": [
+        "/assets/portfolio/Pet Mama/DSC_3214 копия.webp",
+        "/assets/portfolio/Pet Mama/DSC_3297 копия.webp",
+        "/assets/portfolio/Pet Mama/DSC_3313 копия.webp",
+        "/assets/portfolio/Pet Mama/DSC_3325 копия.webp",
+        "/assets/portfolio/Pet Mama/DSC_3347 копия.webp",
+        "/assets/portfolio/Pet Mama/DSC_3357 копия.webp",
+        "/assets/portfolio/Pet Mama/DSC_3711 копия.webp"
+      ]
+    },
+    {
+      "id": "heel",
+      "mainImage": "/assets/portfolio/heel1.svg",
+      "gallery": [
+        "/assets/portfolio/heel1.svg",
+        "/assets/portfolio/heel/DSC_4263 (2).webp",
+        "/assets/portfolio/heel/DSC_4279 (1).webp",
+        "/assets/portfolio/heel/DSC_4609 (1).webp",
+        "/assets/portfolio/heel/DSC_8088.webp",
+        "/assets/portfolio/heel/DSC_8464.webp",
+        "/assets/portfolio/heel/DSC_9606 (1).webp",
+        "/assets/portfolio/heel/DSC_9647 (1).webp"
+      ]
+    },
+    {
+      "id": "colina_verde",
+      "mainImage": "/assets/portfolio/colina.svg",
+      "gallery": [
+        "/assets/portfolio/colina.svg",
+        "/assets/portfolio/colina/1 Ro. 1080x1080.webp",
+        "/assets/portfolio/colina/2111111210.webp",
+        "/assets/portfolio/colina/Instagram post - 140.webp",
+        "/assets/portfolio/colina/Instagram post - 143.webp"
+      ]
+    },
+    {
+      "id": "getmancar",
+      "mainImage": "/assets/portfolio/getman.svg",
+      "gallery": [
+        "/assets/portfolio/getman.svg",
+        "/assets/portfolio/getmancar/2 RO 1080X1080.webp",
+        "/assets/portfolio/getmancar/4 RU 1080X1080.webp",
+        "/assets/portfolio/getmancar/Instagram post - 2.webp",
+        "/assets/portfolio/getmancar/Instagram post - 26.webp"
+      ]
+    },
+    {
+      "id": "epil_bar",
+      "mainImage": "/assets/portfolio/epil.svg",
+      "gallery": [
+        "/assets/portfolio/epil.svg",
+        "/assets/portfolio/Epil/1 RU 1080x1080.webp",
+        "/assets/portfolio/Epil/2 RU 1080x1080.webp",
+        "/assets/portfolio/Epil/3RU 1080x1080.webp",
+        "/assets/portfolio/Epil/4 RU 1080x1080.webp",
+        "/assets/portfolio/Epil/5 RU 1080x1080.webp",
+        "/assets/portfolio/Epil/6 RU 1080x1080.webp"
+      ]
+    }
+  ]
+}

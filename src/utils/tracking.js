@@ -105,12 +105,14 @@ let trackingInitialized = false;
 // Initialize all tracking (always, regardless of consent - for formal compliance)
 export const initializeTracking = () => {
   if (!trackingInitialized) {
-    // Add your tracking IDs here when ready
+    // Meta (Facebook) Pixel - активно
+    initFacebookPixel('1111789414124055');
+
+    // Google Analytics - добавьте ID когда будет готов
     // initGoogleAnalytics('G-XXXXXXXXXX');
-    // initFacebookPixel('XXXXXXXXXXXXXXX');
 
     trackingInitialized = true;
-    console.log('Tracking initialized (always active)');
+    console.log('Tracking initialized with Meta Pixel');
   }
 };
 
