@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { trackEvent } from '../../utils/tracking';
 import portfolioData from '../../data/portfolioData.json';
 import './Portfolio.css';
 
@@ -68,6 +69,37 @@ const Portfolio = () => {
   const gridTouchStartXRef = useRef(null);
   const wheelBlockUntilRef = useRef(0);
   const modalTouchStartRef = useRef(null);
+  const hasTrackedView = useRef(false);
+
+  // ====== TRACK VIEWCONTENT ======
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasTrackedView.current) {
+            trackEvent('ViewContent', {
+              content_name: 'Portfolio Section',
+              content_category: 'portfolio',
+              content_type: 'section'
+            });
+            hasTrackedView.current = true;
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    const section = document.getElementById('portfolio');
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, []);
 
   // ====== РЕАКЦИЯ НА BREAKPOINTS ======
   useEffect(() => {

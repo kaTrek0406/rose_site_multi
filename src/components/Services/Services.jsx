@@ -1,8 +1,41 @@
+import { useEffect, useRef } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { trackEvent } from '../../utils/tracking';
 import './Services.css';
 
 const Services = () => {
   const { t } = useLanguage();
+  const hasTracked = useRef(false);
+
+  useEffect(() => {
+    // Track ViewContent when section is in viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasTracked.current) {
+            trackEvent('ViewContent', {
+              content_name: 'Services Section',
+              content_category: 'services',
+              content_type: 'section'
+            });
+            hasTracked.current = true;
+          }
+        });
+      },
+      { threshold: 0.5 } // Trigger when 50% visible
+    );
+
+    const section = document.getElementById('services');
+    if (section) {
+      observer.observe(section);
+    }
+
+    return () => {
+      if (section) {
+        observer.unobserve(section);
+      }
+    };
+  }, []);
 
   const services = [
     {

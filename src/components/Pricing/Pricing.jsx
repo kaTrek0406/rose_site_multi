@@ -21,6 +21,14 @@ const Pricing = () => {
 
 
   const handleOpenModal = (plan) => {
+    // Track interest in pricing plan
+    trackEvent('InitiateCheckout', {
+      content_name: plan.name,
+      content_category: 'pricing',
+      value: parseFloat(plan.price),
+      currency: 'EUR'
+    });
+
     setSelectedPlan(plan);
     setShowModal(true);
   };

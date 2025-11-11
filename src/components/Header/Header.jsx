@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { trackEvent } from '../../utils/tracking';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
 import './Header.css';
 
@@ -13,6 +14,15 @@ const Header = () => {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const handleContactClick = () => {
+    trackEvent('Contact', {
+      content_name: 'Header Contact Link',
+      content_category: 'navigation',
+      method: 'nav_click'
+    });
+    closeMenu();
   };
 
   return (
@@ -36,7 +46,7 @@ const Header = () => {
             <a href="#workflow" className="nav-link" onClick={closeMenu}>{t('header.nav.workflow')}</a>
             <a href="#portfolio" className="nav-link" onClick={closeMenu}>{t('header.nav.portfolio')}</a>
             <a href="#clients" className="nav-link" onClick={closeMenu}>{t('header.nav.clients')}</a>
-            <a href="#contact" className="nav-link" onClick={closeMenu}>{t('header.nav.contact')}</a>
+            <a href="#contact" className="nav-link" onClick={handleContactClick}>{t('header.nav.contact')}</a>
 
             <div className="social-links-mobile">
               <a href="https://www.instagram.com/rose__creative/?utm_medium=copy_link" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">

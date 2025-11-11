@@ -92,6 +92,13 @@ const Hero = () => {
   }, [modalShowCount]);
 
   const scrollToPortfolio = () => {
+    // Track contact intent
+    trackEvent('Contact', {
+      content_name: 'Hero CTA Button',
+      content_category: 'hero',
+      method: 'button_click'
+    });
+
     const portfolioSection = document.getElementById('portfolio');
     if (portfolioSection) portfolioSection.scrollIntoView({ behavior: 'smooth' });
   };
@@ -153,12 +160,18 @@ const handleInputChange = (e) => {
 
     const result = await sendToTelegram(telegramData);
     if (result.success) {
-      // Track successful lead submission
+      // Track successful lead submission (both Lead and SubmitApplication)
       trackEvent('Lead', {
         content_name: 'Hero Modal Form',
         content_category: 'popup',
         value: 1.00,
         currency: 'USD'
+      });
+
+      trackEvent('SubmitApplication', {
+        content_name: 'Hero Popup Form',
+        content_category: 'popup',
+        timing: showTime
       });
 
       closeModal();
