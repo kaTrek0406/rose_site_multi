@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { sendToTelegram } from '../../services/telegramService';
+import { trackEvent } from '../../utils/tracking';
 import SuccessNotification from '../SuccessNotification/SuccessNotification';
 import './Pricing.css';
 
@@ -83,6 +84,14 @@ const Pricing = () => {
     const result = await sendToTelegram(telegramData);
 
     if (result.success) {
+      // Track successful lead submission
+      trackEvent('Lead', {
+        content_name: `Pricing Form - ${selectedPlan.name}`,
+        content_category: 'pricing',
+        value: parseFloat(selectedPlan.price),
+        currency: 'EUR'
+      });
+
       handleCloseModal();
       setShowSuccess(true);
     } else {

@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { sendToTelegram } from '../../services/telegramService';
+import { trackEvent } from '../../utils/tracking';
 import SuccessNotification from '../SuccessNotification/SuccessNotification';
 import './Hero.css';
 
@@ -152,6 +153,14 @@ const handleInputChange = (e) => {
 
     const result = await sendToTelegram(telegramData);
     if (result.success) {
+      // Track successful lead submission
+      trackEvent('Lead', {
+        content_name: 'Hero Modal Form',
+        content_category: 'popup',
+        value: 1.00,
+        currency: 'USD'
+      });
+
       closeModal();
       setShowSuccess(true);
     } else {
