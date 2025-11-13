@@ -160,18 +160,13 @@ const handleInputChange = (e) => {
 
     const result = await sendToTelegram(telegramData);
     if (result.success) {
-      // Track successful lead submission (both Lead and SubmitApplication)
-      trackEvent('Lead', {
-        content_name: 'Hero Modal Form',
-        content_category: 'popup',
-        value: 1.00,
-        currency: 'USD'
-      });
-
+      // Track popup form submission - only SubmitApplication (not Lead)
       trackEvent('SubmitApplication', {
         content_name: 'Hero Popup Form',
         content_category: 'popup',
-        timing: showTime
+        timing: showTime,
+        value: 1.00,
+        currency: 'USD'
       });
 
       closeModal();
