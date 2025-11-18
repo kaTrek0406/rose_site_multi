@@ -24,24 +24,6 @@ const Clients = () => {
       position: t('clients.testimonial2.position'),
       company: t('clients.testimonial2.company'),
       text: t('clients.testimonial2.text')
-    },
-    {
-      name: t('clients.testimonial3.name'),
-      position: t('clients.testimonial3.position'),
-      company: t('clients.testimonial3.company'),
-      text: t('clients.testimonial3.text')
-    },
-    {
-      name: t('clients.testimonial4.name'),
-      position: t('clients.testimonial4.position'),
-      company: t('clients.testimonial4.company'),
-      text: t('clients.testimonial4.text')
-    },
-    {
-      name: t('clients.testimonial5.name'),
-      position: t('clients.testimonial5.position'),
-      company: t('clients.testimonial5.company'),
-      text: t('clients.testimonial5.text')
     }
   ];
 
