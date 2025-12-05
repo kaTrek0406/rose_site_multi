@@ -119,13 +119,13 @@
   gap: 3rem;
   align-items: center;
   width: max-content;
-  animation: logosMarquee 30s linear infinite;
+  animation: logosMarquee 50s linear infinite;
   will-change: transform;
 }
 
-/* замедление при наведении на область с логотипами */
+/* пауза анимации при наведении на область с логотипами */
 .clients-logos:hover .logos-track {
-  animation-duration: 60s;
+  animation-play-state: paused;
 }
 
 /* Стилизация скроллбара для webkit браузеров */
@@ -141,6 +141,14 @@
   transition: all 0.3s ease;
   position: relative;
   min-height: 80px;
+}
+
+.client-logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .client-logo {

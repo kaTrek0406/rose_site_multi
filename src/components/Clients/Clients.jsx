@@ -28,12 +28,35 @@ const Clients = () => {
   ];
 
   const clients = [
-    { name: 'CD Home', logo: '/assets/clients/cdi home.svg' },
-    { name: 'Colina Verde', logo: '/assets/clients/cokina_verde.svg' },
-    { name: 'Joma', logo: '/assets/clients/joma.svg' },
-    { name: 'Epil Bar', logo: '/assets/clients/epilbar.svg' },
-    { name: 'Golban Trade', logo: '/assets/clients/golban trade.svg' },
-    { name: 'Getmancar', logo: '/assets/clients/getmancarr.svg' }
+    { name: 'Colina Verde', logo: '/assets/clients/4 colina.svg', instagram: 'https://www.instagram.com/colina_verde_residence/' },
+    { name: 'Caviar', logo: '/assets/clients/Caviar.svg', instagram: 'https://www.instagram.com/caviar.md/' },
+    { name: 'Finch', logo: '/assets/clients/Finch logo+bird vector (1).svg', instagram: 'https://www.instagram.com/finch_beer/' },
+    { name: 'Aquatoria', logo: '/assets/clients/aquatoria.svg' },
+    { name: 'Ciao Cacao', logo: '/assets/clients/ciao cacao.svg', instagram: 'https://www.instagram.com/ciaocacao.md/' },
+    { name: 'Claro', logo: '/assets/clients/claro.svg', instagram: 'https://www.instagram.com/claro_md/' },
+    { name: 'Connect', logo: '/assets/clients/connect.svg' },
+    { name: 'Dinotte', logo: '/assets/clients/dinotte.svg', instagram: 'https://www.instagram.com/dinotte.sleepshop.premium/' },
+    { name: 'Element Still', logo: '/assets/clients/element still.svg', instagram: 'https://www.instagram.com/elementstil.md/' },
+    { name: 'Epil Bar', logo: '/assets/clients/epil bar.svg', instagram: 'https://www.instagram.com/epilbarmd/' },
+    { name: 'Family Market', logo: '/assets/clients/family market.svg', instagram: 'https://www.instagram.com/family_market.md/' },
+    { name: 'Getmancar', logo: '/assets/clients/getmancar.svg', instagram: 'https://www.instagram.com/getmancar_md/' },
+    { name: 'Golban Trade', logo: '/assets/clients/golban trade.svg', instagram: 'https://www.instagram.com/golbantradeconstruct/' },
+    { name: 'Heel', logo: '/assets/clients/heel.svg', instagram: 'https://www.instagram.com/heel.md/' },
+    { name: 'Kerashop', logo: '/assets/clients/kerashop.svg', instagram: 'https://www.instagram.com/kerashoppro.md/' },
+    { name: 'Kozel', logo: '/assets/clients/kozel.svg', instagram: 'https://www.instagram.com/kozelbeer/' },
+    { name: 'JBL', logo: '/assets/clients/logo-2023-white (1).svg' },
+    { name: 'Look', logo: '/assets/clients/logo-look.svg', instagram: 'https://www.instagram.com/look.restobar.md/' },
+    { name: 'Head', logo: '/assets/clients/logo_head.svg' },
+    { name: 'Nani', logo: '/assets/clients/nani.svg', instagram: 'https://www.instagram.com/fabrica.nani/' },
+    { name: 'Piesa Ta', logo: '/assets/clients/piesa ta.svg', instagram: 'https://www.instagram.com/piesata.md/' },
+    { name: 'Profimax', logo: '/assets/clients/profimax.svg' },
+    { name: 'Radler', logo: '/assets/clients/radler.svg', instagram: 'https://www.instagram.com/radlermd/' },
+    { name: 'Ritzy', logo: '/assets/clients/ritzy.svg', instagram: 'https://www.instagram.com/ritzy_gifts/' },
+    { name: 'Salat', logo: '/assets/clients/salat.svg', instagram: 'https://www.instagram.com/salat.restaurant/' },
+    { name: 'Smart Sover', logo: '/assets/clients/smart sover.svg' },
+    { name: 'Viva Tur', logo: '/assets/clients/viva tur.svg', instagram: 'https://www.instagram.com/vivatour.md/' },
+    { name: 'WGB', logo: '/assets/clients/wgb.svg', instagram: 'https://www.instagram.com/wbg.contabilitate/' },
+    { name: 'CDI', logo: '/assets/clients/cdi.svg', instagram: 'https://www.instagram.com/cdihomedesign/' }
   ];
 
   const handlePrevTestimonial = () => {
@@ -84,11 +107,26 @@ const Clients = () => {
                   key={`${client.name}-${index}`}
                   className="client-logo-wrapper"
                 >
-                  <img
-                    src={client.logo}
-                    alt={client.name}
-                    className="client-logo"
-                  />
+                  {client.instagram ? (
+                    <a
+                      href={client.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="client-logo-link"
+                    >
+                      <img
+                        src={client.logo}
+                        alt={client.name}
+                        className="client-logo"
+                      />
+                    </a>
+                  ) : (
+                    <img
+                      src={client.logo}
+                      alt={client.name}
+                      className="client-logo"
+                    />
+                  )}
                 </div>
               ))}
             </div>

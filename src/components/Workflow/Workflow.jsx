@@ -51,35 +51,35 @@ const Workflow = () => {
       title: t('workflow.step1.title'),
       description: t('workflow.step1.description'),
       icon: '🎯',
-      color: '#ec4899'
+      color: '#ec4899' // Розовый
     },
     {
       number: '02',
       title: t('workflow.step2.title'),
       description: t('workflow.step2.description'),
       icon: '💡',
-      color: '#8b5cf6'
+      color: '#f5d20bff' // Желтый (изменено с фиолетового)
     },
     {
       number: '03',
       title: t('workflow.step3.title'),
       description: t('workflow.step3.description'),
       icon: '📸',
-      color: '#3b82f6'
+      color: '#1f69f1ff' // Розовый (изменено с синего)
     },
     {
       number: '04',
       title: t('workflow.step4.title'),
       description: t('workflow.step4.description'),
       icon: '✨',
-      color: '#10b981'
+      color: '#ec4899' // Розовый (оставлен)
     },
     {
       number: '05',
       title: t('workflow.step5.title'),
       description: t('workflow.step5.description'),
       icon: '🚀',
-      color: '#f59e0b'
+      color: '#f5d20bff' // Желтый (оставлен)
     }
   ];
 
