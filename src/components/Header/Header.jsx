@@ -28,9 +28,8 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-container">
-        <div className="logo" onClick={toggleLanguage}>
-          <span className="logo-text">{language === 'ru' ? 'RU' : 'RO'}</span>
-          <img src="/assets/icons/language.webp" alt="Language" className="logo-icon" width="24" height="24" loading="eager" />
+        <div className="header-logo-wrapper">
+          <img src="/assets/logo/rose-logo.webp" alt="ROSÉ Logo" className="header-logo" width="80" height="80" loading="eager" />
         </div>
 
         <button className="burger-menu" onClick={toggleMenu} aria-label="Toggle menu">
@@ -58,6 +57,10 @@ const Header = () => {
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
                 <FaLinkedinIn className="social-icon" />
               </a>
+              <div className="language-switcher language-switcher-mobile" onClick={toggleLanguage}>
+                <span className="logo-text">{language === 'ru' ? 'RU' : 'RO'}</span>
+                <img src="/assets/icons/language.webp" alt="Language" className="logo-icon" width="24" height="24" loading="eager" />
+              </div>
             </div>
           </nav>
 
@@ -71,6 +74,11 @@ const Header = () => {
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn">
               <FaLinkedinIn className="social-icon" />
             </a>
+          </div>
+
+          <div className="language-switcher" onClick={toggleLanguage}>
+            <span className="logo-text">{language === 'ru' ? 'RU' : 'RO'}</span>
+            <img src="/assets/icons/language.webp" alt="Language" className="logo-icon" width="24" height="24" loading="eager" />
           </div>
         </div>
       </div>
