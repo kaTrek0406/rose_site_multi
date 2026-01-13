@@ -375,8 +375,32 @@ const Portfolio = () => {
                           ref={(el) => (cardRefs.current[absIndex] = el)}
                           data-absindex={absIndex}
                           className={`portfolio-card ${visibleCards.includes(absIndex) ? 'visible' : ''}`}
-                          style={{ willChange: visibleCards.includes(absIndex) ? 'auto' : 'opacity, transform' }}
-                          onClick={() => handleCardClick(indexOnPage)}
+                          style={{
+                            willChange: visibleCards.includes(absIndex) ? 'auto' : 'opacity, transform',
+                            animationDelay: `${indexOnPage * 0.1}s`
+                          }}
+                          onClick={(e) => {
+                            // Ripple эффект
+                            const card = e.currentTarget;
+                            card.classList.add('ripple');
+                            setTimeout(() => card.classList.remove('ripple'), 600);
+                            handleCardClick(indexOnPage);
+                          }}
+                          onMouseMove={(e) => {
+                            const card = e.currentTarget;
+                            const rect = card.getBoundingClientRect();
+                            const x = e.clientX - rect.left;
+                            const y = e.clientY - rect.top;
+                            const centerX = rect.width / 2;
+                            const centerY = rect.height / 2;
+                            const rotateX = ((y - centerY) / centerY) * -10;
+                            const rotateY = ((x - centerX) / centerX) * 10;
+                            card.style.transform = `translate(12px, -12px) scale(1.05) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                          }}
+                          onMouseLeave={(e) => {
+                            const card = e.currentTarget;
+                            card.style.transform = '';
+                          }}
                         >
                           <div className="portfolio-image-wrapper">
                             <img
