@@ -3,6 +3,7 @@
     {
       "id": "golban_trade",
       "mainImage": "/assets/portfolio/golban.svg",
+      "instagram": "https://www.instagram.com/golbantradeconstruct/",
       "gallery": [
         "/assets/portfolio/Golban Trade/2025-01-17 08.58.52.webp",
         "/assets/portfolio/Golban Trade/2025-01-17 08.59.31.webp",
@@ -13,6 +14,7 @@
     {
       "id": "joma",
       "mainImage": "/assets/portfolio/joma1.svg",
+      "instagram": "https://www.instagram.com/joma.md/",
       "gallery": [
         "/assets/portfolio/Joma/Artboard 2.webp",
         "/assets/portfolio/Joma/Artboard 4.webp",
@@ -28,6 +30,7 @@
     {
       "id": "kerashop",
       "mainImage": "/assets/portfolio/Kerashop/2025-11-05 17.50.53.webp",
+      "instagram": "https://www.instagram.com/kerashoppro.md/",
       "gallery": [
         "/assets/portfolio/Kerashop/2025-11-05 17.50.53.webp",
         "/assets/portfolio/Kerashop/DSC_1413 копия.webp",
@@ -40,6 +43,7 @@
     {
       "id": "jbl_store",
       "mainImage": "/assets/portfolio/JBL/DSC_4461 копия (1).webp",
+      "instagram": "https://www.instagram.com/jblmoldova/",
       "gallery": [
         "/assets/portfolio/JBL/DSC_4461 копия (1).webp",
         "/assets/portfolio/JBL/DSC_4531.webp",
@@ -56,6 +60,7 @@
     {
       "id": "radler",
       "mainImage": "/assets/portfolio/radler/3.webp",
+      "instagram": "https://www.instagram.com/radlermd/",
       "gallery": [
         "/assets/portfolio/radler/3.webp",
         "/assets/portfolio/radler/8.webp",
@@ -69,6 +74,7 @@
     {
       "id": "cocosecret",
       "mainImage": "/assets/portfolio/cocosecret/1.webp",
+      "instagram": "https://www.instagram.com/cocosecret_md/",
       "gallery": [
         "/assets/portfolio/cocosecret/1.webp",
         "/assets/portfolio/cocosecret/2025-11-06 13.52.58.webp",
@@ -83,6 +89,7 @@
     {
       "id": "finch",
       "mainImage": "/assets/portfolio/Finch/DSC_4832.webp",
+      "instagram": "https://www.instagram.com/finch_beer/",
       "gallery": [
         "/assets/portfolio/Finch/DSC_12655.webp",
         "/assets/portfolio/Finch/DSC_2147.webp",
@@ -98,6 +105,7 @@
     {
       "id": "kvartals",
       "mainImage": "/assets/portfolio/Kvartals/1r.webp",
+      "instagram": "https://www.instagram.com/kvartals.beer/",
       "gallery": [
         "/assets/portfolio/Kvartals/1r.webp",
         "/assets/portfolio/Kvartals/8 (1).webp",
@@ -113,6 +121,7 @@
     {
       "id": "pet_mama",
       "mainImage": "/assets/portfolio/Pet Mama/DSC_3214 копия.webp",
+      "instagram": "https://www.instagram.com/petmama.md/",
       "gallery": [
         "/assets/portfolio/Pet Mama/DSC_3214 копия.webp",
         "/assets/portfolio/Pet Mama/DSC_3297 копия.webp",
@@ -126,6 +135,7 @@
     {
       "id": "heel",
       "mainImage": "/assets/portfolio/heel1.svg",
+      "instagram": "https://www.instagram.com/heel.md/",
       "gallery": [
         "/assets/portfolio/heel1.svg",
         "/assets/portfolio/heel/DSC_4263 (2).webp",
@@ -140,6 +150,7 @@
     {
       "id": "colina_verde",
       "mainImage": "/assets/portfolio/colina.svg",
+      "instagram": "https://www.instagram.com/colina_verde_residence/",
       "gallery": [
         "/assets/portfolio/colina.svg",
         "/assets/portfolio/colina/1 Ro. 1080x1080.webp",
@@ -151,17 +162,18 @@
     {
       "id": "getmancar",
       "mainImage": "/assets/portfolio/getman.svg",
+      "instagram": "https://www.instagram.com/getmancar_md/",
       "gallery": [
         "/assets/portfolio/getman.svg",
         "/assets/portfolio/getmancar/2 RO 1080X1080.webp",
         "/assets/portfolio/getmancar/4 RU 1080X1080.webp",
-        "/assets/portfolio/getmancar/Instagram post - 2.webp",
-        "/assets/portfolio/getmancar/Instagram post - 26.webp"
+        "/assets/portfolio/getmancar/Instagram post - 2.webp"
       ]
     },
     {
       "id": "epil_bar",
       "mainImage": "/assets/portfolio/epil.svg",
+      "instagram": "https://www.instagram.com/epilbarmd/",
       "gallery": [
         "/assets/portfolio/epil.svg",
         "/assets/portfolio/Epil/1 RU 1080x1080.webp",

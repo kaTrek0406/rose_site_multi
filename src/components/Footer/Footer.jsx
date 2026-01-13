@@ -4,8 +4,8 @@ import './Footer.css';
 const Footer = () => {
   const { t } = useLanguage();
 
-  const address = "Valea Trandafirilor 6/2 of 119, Chișinău, Moldova";
-  const googleMapsUrl = "https://www.google.com/maps/dir/?api=1&destination=Valea+Trandafirilor+6/2+of+119,+Chișinău,+Moldova";
+  const address = "Valea Trandafirilor 20, Chișinău, Moldova";
+  const googleMapsUrl = "https://www.google.com/maps/dir/?api=1&destination=Valea+Trandafirilor+20,+Chișinău,+Moldova";
   const email = "rosecreative13@gmail.com";
   const phone1 = "+373 69 200 775";
   const phone1Clean = "+37369200775";
@@ -104,7 +104,7 @@ const Footer = () => {
 
           <div className="footer-map">
             <iframe
-              src="https://www.google.com/maps?q=Valea+Trandafirilor+6/2,+Chișinău,+Moldova&output=embed"
+              src="https://www.google.com/maps?q=Valea+Trandafirilor+20,+Chișinău,+Moldova&output=embed"
               width="100%"
               height="300"
               style={{ border: 0, borderRadius: '15px' }}

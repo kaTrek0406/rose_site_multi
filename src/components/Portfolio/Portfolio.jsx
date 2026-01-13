@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { trackEvent } from '../../utils/tracking';
+import { FaInstagram } from 'react-icons/fa';
 import portfolioData from '../../data/portfolioData.json';
 import './Portfolio.css';
 
@@ -25,7 +26,8 @@ const Portfolio = () => {
     portfolioData.portfolioItems.map(item => ({
       id: item.id,
       image: item.mainImage,
-      gallery: item.gallery
+      gallery: item.gallery,
+      instagram: item.instagram
     }))
   , []);
 
@@ -444,9 +446,23 @@ const Portfolio = () => {
             </div>
 
             <div className="modal-info">
-              <h2 className="modal-title">
-                {t(`portfolio.${allPortfolioItems[selectedItemIndex].id}.title`)}
-              </h2>
+              <div className="modal-title-row">
+                <h2 className="modal-title">
+                  {t(`portfolio.${allPortfolioItems[selectedItemIndex].id}.title`)}
+                </h2>
+                {allPortfolioItems[selectedItemIndex].instagram && (
+                  <a
+                    href={allPortfolioItems[selectedItemIndex].instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="modal-instagram-btn"
+                    onClick={(e) => e.stopPropagation()}
+                    aria-label="Instagram"
+                  >
+                    <FaInstagram className="modal-instagram-icon" />
+                  </a>
+                )}
+              </div>
               <p className="modal-client">
                 {t('portfolio.modal.client_label')} {t(`portfolio.${allPortfolioItems[selectedItemIndex].id}.client`)}
               </p>

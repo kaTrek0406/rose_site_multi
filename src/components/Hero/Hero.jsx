@@ -240,7 +240,14 @@ const handleInputChange = (e) => {
             <span key={i}>{line}{i === 0 && <br />}</span>
           ))}
         </p>
-        <button className="hero-cta" onClick={scrollToPortfolio}>{t('hero.cta_button')}</button>
+        <button className="hero-cta" onClick={() => {
+          trackEvent('Contact', {
+            content_name: 'Hero CTA Button - Phone Call',
+            content_category: 'hero',
+            method: 'button_click'
+          });
+          window.location.href = 'tel:+37369200775';
+        }}>{t('hero.cta_button')}</button>
       </div>
 
       <div className="scroll-indicator" onClick={scrollToServices}>

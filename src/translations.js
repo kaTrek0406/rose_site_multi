@@ -12,7 +12,7 @@ export const translations = {
     // Hero
     'hero.title': 'МЫ САМЫЕ СКРОМНЫЕ',
     'hero.subtitle': 'Создаём всё, от логотипов до масштабных\nрекламных кампаний',
-    'hero.cta_button': 'Начать проект',
+    'hero.cta_button': 'Связаться с нами',
     'hero.modal.title': 'Начнем ваш проект?',
     'hero.modal.subtitle': 'Оставьте заявку и мы свяжемся с вами в течение 24 часов',
     'hero.modal.name_placeholder': 'Ваше имя',
@@ -176,7 +176,7 @@ export const translations = {
 
     'pricing.premium.name': 'Премиум',
     'pricing.premium.description': 'Комплексное решение',
-    'pricing.premium.feature1': 'Всё из предложения за 800 евро +',
+    'pricing.premium.feature1': 'Всё из предложения за 850 евро +',
     'pricing.premium.feature2': 'Создание комплексной стратегии присутствия в социальных сетях',
     'pricing.premium.feature3': 'Дизайн макеты',
     'pricing.premium.feature4': 'Stories для каждой социальной сети (20 слайдов)',
@@ -273,7 +273,7 @@ export const translations = {
     // Hero
     'hero.title': 'CEI MAI MODEȘTI',
     'hero.subtitle': 'Creăm totul, de la logo-uri până la campanii\npublicitare de amploare',
-    'hero.cta_button': 'Începe proiectul',
+    'hero.cta_button': 'Contactați-ne',
     'hero.modal.title': 'Să începem proiectul tău?',
     'hero.modal.subtitle': 'Lasă o solicitare și te vom contacta în 24 de ore',
     'hero.modal.name_placeholder': 'Numele tău',
@@ -437,7 +437,7 @@ export const translations = {
 
     'pricing.premium.name': 'Premium',
     'pricing.premium.description': 'Soluție complexă',
-    'pricing.premium.feature1': 'Tot din oferta de 800 euro +',
+    'pricing.premium.feature1': 'Tot din oferta de 850 euro +',
     'pricing.premium.feature2': 'Crearea strategiei complexe de prezență în rețelele sociale',
     'pricing.premium.feature3': 'Design machete',
     'pricing.premium.feature4': 'Stories pentru fiecare rețea socială (20 slide-uri)',
