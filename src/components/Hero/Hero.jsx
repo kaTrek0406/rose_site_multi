@@ -193,15 +193,27 @@ const handleInputChange = (e) => {
         willChange: enableDepth ? 'transform, opacity' : 'auto'
       }}
     >
-      {/* Animated background gradient */}
-      <div
-        className="hero-gradient-bg"
+      {/* Video background */}
+      <video
+        className="hero-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        poster="/hero-video-poster.jpg"
         style={{
           transform: enableDepth ? `translateZ(-200px) scale(${1 + scrollProgress * 0.15})` : 'none',
           opacity: enableDepth ? 1 - scrollProgress * 0.3 : 1,
           willChange: enableDepth ? 'transform, opacity' : 'auto'
         }}
-      />
+      >
+        <source src="/hero-video.webm" type="video/webm" />
+        <source src="/hero-video.mp4" type="video/mp4" />
+      </video>
+
+      {/* Gradient overlay for better text readability */}
+      <div className="hero-video-overlay" />
 
       {/* Floating particles */}
       <div
