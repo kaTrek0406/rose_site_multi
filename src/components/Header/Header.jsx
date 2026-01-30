@@ -29,7 +29,7 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         <div className="header-logo-wrapper">
-          <img src="/assets/logo/rose-logo.webp" alt="ROSÉ Logo" className="header-logo" width="80" height="80" loading="eager" />
+          <img src="/assets/logo/rose-logo.svg" alt="ROSÉ Logo" className="header-logo" loading="eager" />
         </div>
 
         <button className="burger-menu" onClick={toggleMenu} aria-label="Toggle menu">

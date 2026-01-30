@@ -17,10 +17,10 @@ const Hero = () => {
   const [showSuccess, setShowSuccess] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [formData, setFormData] = useState({
-  name: '',
-  phone: '+373',
-  service: ''
-});
+    name: '',
+    phone: '+373',
+    service: ''
+  });
 
 
   // фикс: частицы считаем один раз
@@ -116,30 +116,30 @@ const Hero = () => {
 
   const allowedPrefixes = ['60', '61', '62', '65', '67', '68', '69', '78', '79'];
 
-const handleInputChange = (e) => {
-  const { name, value } = e.target;
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
 
-  if (name === 'phone') {
-    let cleaned = value.replace(/\D/g, '');
-    if (cleaned.startsWith('373')) cleaned = cleaned.slice(3);
-    if (cleaned.length > 8) cleaned = cleaned.slice(0, 8);
+    if (name === 'phone') {
+      let cleaned = value.replace(/\D/g, '');
+      if (cleaned.startsWith('373')) cleaned = cleaned.slice(3);
+      if (cleaned.length > 8) cleaned = cleaned.slice(0, 8);
 
-    const prefix = cleaned.slice(0, 2);
-    if (cleaned.length >= 2 && !allowedPrefixes.includes(prefix)) {
-      return;
+      const prefix = cleaned.slice(0, 2);
+      if (cleaned.length >= 2 && !allowedPrefixes.includes(prefix)) {
+        return;
+      }
+
+      setFormData(prev => ({
+        ...prev,
+        phone: '+373' + cleaned
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [name]: value
+      }));
     }
-
-    setFormData(prev => ({
-      ...prev,
-      phone: '+373' + cleaned
-    }));
-  } else {
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  }
-};
+  };
 
 
   const handleSubmit = async (e) => {
@@ -179,8 +179,8 @@ const handleInputChange = (e) => {
 
   // Мягкие коэффициенты 3D
   const rotate = enableDepth ? Math.min(scrollProgress * 8, 8) : 0;
-  const scale  = enableDepth ? Math.max(1 - scrollProgress * 0.08, 0.92) : 1;
-  const fade   = enableDepth ? Math.max(1 - scrollProgress * 0.4, 0.6) : 1;
+  const scale = enableDepth ? Math.max(1 - scrollProgress * 0.08, 0.92) : 1;
+  const fade = enableDepth ? Math.max(1 - scrollProgress * 0.4, 0.6) : 1;
 
   return (
     <section
@@ -243,9 +243,7 @@ const handleInputChange = (e) => {
           willChange: enableDepth ? 'transform, opacity' : 'auto'
         }}
       >
-        <div className="hero-logo">
-          <img src="/assets/logo/rose-logo.webp" alt="ROSÉ Logo" className="hero-logo-image" loading="eager" fetchpriority="high" width="300" height="300" />
-        </div>
+
         <h2 className="hero-title">{t('hero.title')}</h2>
         <p className="hero-subtitle">
           {t('hero.subtitle').split('\n').map((line, i) => (

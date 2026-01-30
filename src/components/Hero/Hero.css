@@ -487,15 +487,6 @@
 
 @media (max-width: 768px) {
 
-  /* On mobile, hide video and show static background for performance */
-  .hero-video {
-    display: none;
-  }
-
-  .hero-gradient-bg {
-    display: block;
-  }
-
   .hero-logo-image {
     max-width: 400px;
   }

@@ -23,13 +23,37 @@
 .header-logo-wrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .header-logo {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   object-fit: contain;
   transition: transform 0.3s ease;
+  display: block;
+}
+
+/* ... existing code ... */
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  /* ... existing mobile styles ... */
+  .header-logo {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+
+  /* ... existing small mobile styles ... */
+  .header-logo {
+    width: 70px;
+    height: 70px;
+  }
 }
 
 .header-logo:hover {
@@ -217,7 +241,7 @@
     display: none;
   }
 
-  .nav-wrapper > .language-switcher {
+  .nav-wrapper>.language-switcher {
     display: none;
   }
 
@@ -251,8 +275,8 @@
   }
 
   .header-logo {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
   }
 
   .language-switcher {
@@ -268,8 +292,8 @@
   }
 
   .header-logo {
-    width: 55px;
-    height: 55px;
+    width: 70px;
+    height: 70px;
   }
 
   .language-switcher {
