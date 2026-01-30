@@ -16,6 +16,14 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  const handleNavClick = (sectionId) => {
+    closeMenu();
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const handleContactClick = () => {
     trackEvent('Contact', {
       content_name: 'Header Contact Link',
@@ -29,7 +37,9 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         <div className="header-logo-wrapper">
-          <img src="/assets/logo/rose-logo.svg" alt="ROSÉ Logo" className="header-logo" loading="eager" />
+          <a href="#home" onClick={() => handleNavClick('home')}>
+            <img src="/assets/logo/rose-logo.svg" alt="ROSÉ Logo" className="header-logo" loading="eager" />
+          </a>
         </div>
 
         <button className="burger-menu" onClick={toggleMenu} aria-label="Toggle menu">
@@ -40,12 +50,12 @@ const Header = () => {
 
         <div className="nav-wrapper">
           <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
-            <a href="#home" className="nav-link" onClick={closeMenu}>{t('header.nav.home')}</a>
-            <a href="#services" className="nav-link" onClick={closeMenu}>{t('header.nav.services')}</a>
-            <a href="#workflow" className="nav-link" onClick={closeMenu}>{t('header.nav.workflow')}</a>
-            <a href="#portfolio" className="nav-link" onClick={closeMenu}>{t('header.nav.portfolio')}</a>
-            <a href="#clients" className="nav-link" onClick={closeMenu}>{t('header.nav.clients')}</a>
-            <a href="#contact" className="nav-link" onClick={handleContactClick}>{t('header.nav.contact')}</a>
+            <a href="#home" className="nav-link" onClick={() => handleNavClick('home')}>{t('header.nav.home')}</a>
+            <a href="#services" className="nav-link" onClick={() => handleNavClick('services')}>{t('header.nav.services')}</a>
+            <a href="#workflow" className="nav-link" onClick={() => handleNavClick('workflow')}>{t('header.nav.workflow')}</a>
+            <a href="#portfolio" className="nav-link" onClick={() => handleNavClick('portfolio')}>{t('header.nav.portfolio')}</a>
+            <a href="#clients" className="nav-link" onClick={() => handleNavClick('clients')}>{t('header.nav.clients')}</a>
+            <a href="#contact" className="nav-link" onClick={() => { handleNavClick('contact'); handleContactClick(); }}>{t('header.nav.contact')}</a>
 
             <div className="social-links-mobile">
               <a href="https://www.instagram.com/rose__creative/?utm_medium=copy_link" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">

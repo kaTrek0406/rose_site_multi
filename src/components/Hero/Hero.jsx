@@ -208,8 +208,7 @@ const Hero = () => {
           willChange: enableDepth ? 'transform, opacity' : 'auto'
         }}
       >
-        <source src="/hero-video.webm" type="video/webm" />
-        <source src="/hero-video.mp4" type="video/mp4" />
+        <source src="/hero-video-optimized.mp4" type="video/mp4" />
       </video>
 
       {/* Gradient overlay for better text readability */}
@@ -243,6 +242,17 @@ const Hero = () => {
           willChange: enableDepth ? 'transform, opacity' : 'auto'
         }}
       >
+        <img
+          src="/src/assets/logo/rose-logo.png"
+          alt="Rose Creative Logo"
+          className="hero-logo"
+          style={{
+            width: '220px',
+            height: 'auto',
+            marginBottom: '1.5rem',
+            filter: 'drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3))'
+          }}
+        />
 
         <h2 className="hero-title">{t('hero.title')}</h2>
         <p className="hero-subtitle">
