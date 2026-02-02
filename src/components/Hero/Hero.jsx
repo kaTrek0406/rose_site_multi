@@ -5,6 +5,7 @@ import { sendToTelegram } from '../../services/telegramService';
 import { trackEvent } from '../../utils/tracking';
 import SuccessNotification from '../SuccessNotification/SuccessNotification';
 import './Hero.css';
+import roseLogo from '../../assets/logo/rose-logo.png';
 
 const enableDepth = false; // ← поставь false, чтобы полностью отключить 3D-эффект
 
@@ -243,7 +244,7 @@ const Hero = () => {
         }}
       >
         <img
-          src="/src/assets/logo/rose-logo.png"
+          src={roseLogo}
           alt="Rose Creative Logo"
           className="hero-logo"
           style={{
