@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { trackEvent } from '../../utils/tracking';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
@@ -7,6 +8,7 @@ import './Header.css';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { language, toggleLanguage, t } = useLanguage();
+  const location = useLocation();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -14,14 +16,6 @@ const Header = () => {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
-  };
-
-  const handleNavClick = (sectionId) => {
-    closeMenu();
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
   };
 
   const handleContactClick = () => {
@@ -33,13 +27,23 @@ const Header = () => {
     closeMenu();
   };
 
+  const navItems = [
+    { path: '/', label: t('header.nav.home') },
+    { path: '/about', label: t('header.nav.about') },
+    { path: '/services', label: t('header.nav.services') },
+    { path: '/cases', label: t('header.nav.portfolio') },
+    { path: '/blog', label: t('header.nav.blog') },
+    { path: '/pricing', label: t('header.nav.pricing') },
+    { path: '/contact', label: t('header.nav.contact'), onClick: handleContactClick },
+  ];
+
   return (
     <header className="header">
       <div className="header-container">
         <div className="header-logo-wrapper">
-          <a href="#home" onClick={() => handleNavClick('home')}>
-            <img src="/assets/logo/rose-logo.svg" alt="ROSÉ Logo" className="header-logo" loading="eager" />
-          </a>
+          <Link to="/" onClick={closeMenu}>
+            <img src="/assets/logo/rose-logo.svg" alt="ROSE Logo" className="header-logo" loading="eager" />
+          </Link>
         </div>
 
         <button className="burger-menu" onClick={toggleMenu} aria-label="Toggle menu">
@@ -50,12 +54,19 @@ const Header = () => {
 
         <div className="nav-wrapper">
           <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
-            <a href="#home" className="nav-link" onClick={() => handleNavClick('home')}>{t('header.nav.home')}</a>
-            <a href="#services" className="nav-link" onClick={() => handleNavClick('services')}>{t('header.nav.services')}</a>
-            <a href="#workflow" className="nav-link" onClick={() => handleNavClick('workflow')}>{t('header.nav.workflow')}</a>
-            <a href="#portfolio" className="nav-link" onClick={() => handleNavClick('portfolio')}>{t('header.nav.portfolio')}</a>
-            <a href="#clients" className="nav-link" onClick={() => handleNavClick('clients')}>{t('header.nav.clients')}</a>
-            <a href="#contact" className="nav-link" onClick={() => { handleNavClick('contact'); handleContactClick(); }}>{t('header.nav.contact')}</a>
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`nav-link ${location.pathname === item.path ? 'nav-link-active' : ''}`}
+                onClick={() => {
+                  closeMenu();
+                  if (item.onClick) item.onClick();
+                }}
+              >
+                {item.label}
+              </Link>
+            ))}
 
             <div className="social-links-mobile">
               <a href="https://www.instagram.com/rose__creative/?utm_medium=copy_link" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram">

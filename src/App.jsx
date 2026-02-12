@@ -1,29 +1,37 @@
+import { Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
-import Hero from './components/Hero/Hero';
-import Header from './components/Header/Header';
-import Services from './components/Services/Services';
-import Workflow from './components/Workflow/Workflow';
-import Portfolio from './components/Portfolio/Portfolio';
-import Clients from './components/Clients/Clients';
-import ContactForm from './components/ContactForm/ContactForm';
-import Footer from './components/Footer/Footer';
-import CookieConsent from './components/CookieConsent/CookieConsent';
+import Layout from './components/Layout/Layout';
+import Home from './pages/Home/Home';
+import About from './pages/About/About';
+import ServicesPage from './pages/Services/ServicesPage';
+import ServiceDetail from './pages/ServiceDetail/ServiceDetail';
+import Blog from './pages/Blog/Blog';
+import BlogArticle from './pages/BlogArticle/BlogArticle';
+import Cases from './pages/Cases/Cases';
+import FAQ from './pages/FAQ/FAQ';
+import PricingPage from './pages/Pricing/PricingPage';
+import ContactPage from './pages/Contact/ContactPage';
+import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
 function App() {
   return (
     <LanguageProvider>
-      <div className="app">
-        <Hero />
-        <Header />
-        <Services />
-        <Workflow />
-        <Portfolio />
-        <Clients />
-        <ContactForm />
-        <Footer />
-        <CookieConsent />
-      </div>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="services" element={<ServicesPage />} />
+          <Route path="services/:serviceSlug" element={<ServiceDetail />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="blog/:articleSlug" element={<BlogArticle />} />
+          <Route path="cases" element={<Cases />} />
+          <Route path="faq" element={<FAQ />} />
+          <Route path="pricing" element={<PricingPage />} />
+          <Route path="contact" element={<ContactPage />} />
+        </Route>
+      </Routes>
     </LanguageProvider>
   );
 }

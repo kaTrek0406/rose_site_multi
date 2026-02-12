@@ -139,8 +139,13 @@
   position: relative;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link-active {
   color: #ec4899;
+}
+
+.nav-link-active::after {
+  width: 100% !important;
 }
 
 .nav-link::after {

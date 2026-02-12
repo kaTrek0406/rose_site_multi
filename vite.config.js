@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 import purgecss from 'vite-plugin-purgecss'
 
 export default defineConfig({
+  base: '/rose_site_multi/',
   plugins: [
     react(),
     purgecss({

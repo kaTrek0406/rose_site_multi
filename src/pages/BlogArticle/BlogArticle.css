@@ -1,0 +1,194 @@
+.blog-article-page {
+  padding-top: 100px;
+}
+
+.ba-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.ba-animate.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ba-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.ba-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ec4899;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: gap 0.3s ease;
+}
+
+.ba-back:hover {
+  gap: 1rem;
+}
+
+.ba-header {
+  margin-bottom: 3rem;
+}
+
+.ba-meta {
+  display: flex;
+  gap: 1.5rem;
+  color: #999;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.ba-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.ba-category {
+  background: #fdf2f8;
+  color: #ec4899 !important;
+  padding: 0.2rem 0.75rem;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.ba-header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #1a1a1a;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+
+.ba-excerpt {
+  font-size: 1.15rem;
+  color: #666;
+  line-height: 1.7;
+}
+
+/* Article content */
+.ba-content h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #1a1a1a;
+  margin: 2.5rem 0 1rem;
+}
+
+.ba-content h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 2rem 0 0.75rem;
+}
+
+.ba-content p {
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+.ba-content ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.ba-content li {
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
+.ba-content strong {
+  color: #1a1a1a;
+}
+
+/* Share */
+.ba-share {
+  margin-top: 4rem;
+  padding: 3rem;
+  background: #fdf2f8;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.ba-share span {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+}
+
+/* Related */
+.ba-related {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.ba-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.ba-related-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.ba-related-card:hover {
+  transform: translateY(-5px);
+}
+
+.ba-related-category {
+  display: inline-block;
+  background: #fdf2f8;
+  color: #ec4899;
+  padding: 0.2rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.ba-related-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+.ba-related-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #999;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+  .ba-header h1 { font-size: 1.8rem; }
+  .ba-related-grid { grid-template-columns: 1fr; }
+}
