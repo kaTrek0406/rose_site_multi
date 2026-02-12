@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { trackEvent } from '../../utils/tracking';
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
+import { getAssetPath } from '../../utils/assets';
 import './Header.css';
 
 const Header = () => {
@@ -42,7 +43,7 @@ const Header = () => {
       <div className="header-container">
         <div className="header-logo-wrapper">
           <Link to="/" onClick={closeMenu}>
-            <img src="/assets/logo/rose-logo.svg" alt="ROSE Logo" className="header-logo" loading="eager" />
+            <img src={getAssetPath('/assets/logo/rose-logo.svg')} alt="ROSE Logo" className="header-logo" loading="eager" />
           </Link>
         </div>
 
@@ -80,7 +81,7 @@ const Header = () => {
               </a>
               <div className="language-switcher language-switcher-mobile" onClick={toggleLanguage}>
                 <span className="logo-text">{language === 'ru' ? 'RU' : 'RO'}</span>
-                <img src="/assets/icons/language.webp" alt="Language" className="logo-icon" width="24" height="24" loading="eager" />
+                <img src={getAssetPath('/assets/icons/language.webp')} alt="Language" className="logo-icon" width="24" height="24" loading="eager" />
               </div>
             </div>
           </nav>
@@ -99,7 +100,7 @@ const Header = () => {
 
           <div className="language-switcher" onClick={toggleLanguage}>
             <span className="logo-text">{language === 'ru' ? 'RU' : 'RO'}</span>
-            <img src="/assets/icons/language.webp" alt="Language" className="logo-icon" width="24" height="24" loading="eager" />
+            <img src={getAssetPath('/assets/icons/language.webp')} alt="Language" className="logo-icon" width="24" height="24" loading="eager" />
           </div>
         </div>
       </div>

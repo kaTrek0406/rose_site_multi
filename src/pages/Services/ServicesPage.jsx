@@ -1,16 +1,17 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { getAssetPath } from '../../utils/assets';
 import { FaArrowRight, FaCheck } from 'react-icons/fa';
 import './ServicesPage.css';
 
 const serviceKeys = [
-  { slug: 'smm', icon: '/assets/services/smm.webp', key: 'smm', featureCount: 6 },
-  { slug: 'design', icon: '/assets/services/design.webp', key: 'design', featureCount: 6 },
-  { slug: 'photo', icon: '/assets/services/photo.webp', key: 'photo', featureCount: 6 },
-  { slug: 'target', icon: '/assets/services/target.webp', key: 'target', featureCount: 6 },
-  { slug: 'video', icon: '/assets/services/video.webp', key: 'video', featureCount: 6 },
-  { slug: 'illustration', icon: '/assets/services/ilustration.webp', key: 'illustration', featureCount: 6 },
+  { slug: 'smm', icon: getAssetPath('/assets/services/smm.webp'), key: 'smm', featureCount: 6 },
+  { slug: 'design', icon: getAssetPath('/assets/services/design.webp'), key: 'design', featureCount: 6 },
+  { slug: 'photo', icon: getAssetPath('/assets/services/photo.webp'), key: 'photo', featureCount: 6 },
+  { slug: 'target', icon: getAssetPath('/assets/services/target.webp'), key: 'target', featureCount: 6 },
+  { slug: 'video', icon: getAssetPath('/assets/services/video.webp'), key: 'video', featureCount: 6 },
+  { slug: 'illustration', icon: getAssetPath('/assets/services/ilustration.webp'), key: 'illustration', featureCount: 6 },
 ];
 
 const ServicesPage = () => {

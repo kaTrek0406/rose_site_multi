@@ -2,12 +2,13 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaClock, FaArrowRight, FaTag } from 'react-icons/fa';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { getAssetPath } from '../../utils/assets';
 import './Blog.css';
 
 export const blogArticlesData = [
   {
     slug: 'smm-trends-2025',
-    image: '/assets/services/smm.webp',
+    image: getAssetPath('/assets/services/smm.webp'),
     ru: {
       title: 'SMM-тренды 2025: что нужно знать бизнесу',
       excerpt: 'Искусственный интеллект, короткие видео, UGC-контент и другие тренды, которые определяют развитие социальных сетей в 2025 году.',
@@ -91,7 +92,7 @@ Noi, la Rose Creative, ajutăm afacerile să integreze tendințele actuale în s
   },
   {
     slug: 'content-strategy-guide',
-    image: '/assets/services/design.webp',
+    image: getAssetPath('/assets/services/design.webp'),
     ru: {
       title: 'Как создать контент-стратегию: пошаговое руководство',
       excerpt: 'Полное руководство по созданию эффективной контент-стратегии для социальных сетей. От постановки целей до измерения результатов.',
@@ -195,7 +196,7 @@ Urmăriți metricile cheie: acoperire, engagement, click-uri, conversii. O dată
   },
   {
     slug: 'instagram-reels-guide',
-    image: '/assets/services/video.webp',
+    image: getAssetPath('/assets/services/video.webp'),
     ru: {
       title: 'Instagram Reels: полный гид по созданию',
       excerpt: 'Всё, что нужно знать о создании Reels: форматы, идеи, монтаж, тренды и алгоритмы продвижения.',
@@ -291,7 +292,7 @@ Instagram prioritizează Reels în feed și pe pagina Explore. Conform studiilor
   },
   {
     slug: 'brand-photography-tips',
-    image: '/assets/services/photo.webp',
+    image: getAssetPath('/assets/services/photo.webp'),
     ru: {
       title: '10 правил продающей фотосъёмки для бизнеса',
       excerpt: 'Как фотографии влияют на продажи и какие правила нужно соблюдать, чтобы визуальный контент работал на ваш бренд.',
@@ -399,7 +400,7 @@ Retușarea și corecția de culoare nu sunt un lux, ci o necesitate. Prelucrarea
   },
   {
     slug: 'target-advertising-basics',
-    image: '/assets/services/target.webp',
+    image: getAssetPath('/assets/services/target.webp'),
     ru: {
       title: 'Таргетированная реклама: с чего начать',
       excerpt: 'Основы таргетированной рекламы для малого бизнеса. Как настроить первую кампанию и не слить бюджет.',
@@ -495,7 +496,7 @@ Dacă ați cheltuit bugetul, dar nu ați obținut rezultate — este timpul să 
   },
   {
     slug: 'design-for-social-media',
-    image: '/assets/services/ilustration.webp',
+    image: getAssetPath('/assets/services/ilustration.webp'),
     ru: {
       title: 'Дизайн для соцсетей: основные принципы',
       excerpt: 'Как создавать визуальный контент, который привлекает внимание и повышает вовлечённость аудитории.',

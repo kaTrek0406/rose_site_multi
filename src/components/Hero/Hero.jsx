@@ -5,6 +5,7 @@ import { sendToTelegram } from '../../services/telegramService';
 import { trackEvent } from '../../utils/tracking';
 import SuccessNotification from '../SuccessNotification/SuccessNotification';
 import './Hero.css';
+import { getAssetPath } from '../../utils/assets';
 import roseLogo from '../../assets/logo/rose-logo.png';
 
 const enableDepth = false; // ← поставь false, чтобы полностью отключить 3D-эффект
@@ -202,14 +203,14 @@ const Hero = () => {
         loop
         playsInline
         preload="metadata"
-        poster="/hero-video-poster.jpg"
+        poster={getAssetPath('/hero-video-poster.jpg')}
         style={{
           transform: enableDepth ? `translateZ(-200px) scale(${1 + scrollProgress * 0.15})` : 'none',
           opacity: enableDepth ? 1 - scrollProgress * 0.3 : 1,
           willChange: enableDepth ? 'transform, opacity' : 'auto'
         }}
       >
-        <source src="/hero-video-optimized.mp4" type="video/mp4" />
+        <source src={getAssetPath('/hero-video-optimized.mp4')} type="video/mp4" />
       </video>
 
       {/* Gradient overlay for better text readability */}

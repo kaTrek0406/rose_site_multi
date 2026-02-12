@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
+import { getAssetPath } from '../../utils/assets';
 import './Clients.css';
 
 const Clients = () => {
@@ -28,35 +29,35 @@ const Clients = () => {
   ];
 
   const clients = [
-    { name: 'Colina Verde', logo: '/assets/clients/4 colina.svg', instagram: 'https://www.instagram.com/colina_verde_residence/' },
-    { name: 'Caviar', logo: '/assets/clients/Caviar.svg', instagram: 'https://www.instagram.com/caviar.md/' },
-    { name: 'Finch', logo: '/assets/clients/Finch logo+bird vector (1).svg', instagram: 'https://www.instagram.com/finch_beer/' },
-    { name: 'Aquatoria', logo: '/assets/clients/aquatoria.svg' },
-    { name: 'Ciao Cacao', logo: '/assets/clients/ciao cacao.svg', instagram: 'https://www.instagram.com/ciaocacao.md/' },
-    { name: 'Claro', logo: '/assets/clients/claro.svg', instagram: 'https://www.instagram.com/claro_md/' },
-    { name: 'Connect', logo: '/assets/clients/connect.svg' },
-    { name: 'Dinotte', logo: '/assets/clients/dinotte.svg', instagram: 'https://www.instagram.com/dinotte.sleepshop.premium/' },
-    { name: 'Element Still', logo: '/assets/clients/element still.svg', instagram: 'https://www.instagram.com/elementstil.md/' },
-    { name: 'Epil Bar', logo: '/assets/clients/epil bar.svg', instagram: 'https://www.instagram.com/epilbarmd/' },
-    { name: 'Family Market', logo: '/assets/clients/family market.svg', instagram: 'https://www.instagram.com/family_market.md/' },
-    { name: 'Getmancar', logo: '/assets/clients/getmancar.svg', instagram: 'https://www.instagram.com/getmancar_md/' },
-    { name: 'Golban Trade', logo: '/assets/clients/golban trade.svg', instagram: 'https://www.instagram.com/golbantradeconstruct/' },
-    { name: 'Heel', logo: '/assets/clients/heel.svg', instagram: 'https://www.instagram.com/heel.md/' },
-    { name: 'Kerashop', logo: '/assets/clients/kerashop.svg', instagram: 'https://www.instagram.com/kerashoppro.md/' },
-    { name: 'Kozel', logo: '/assets/clients/kozel.svg', instagram: 'https://www.instagram.com/kozelbeer/' },
-    { name: 'JBL', logo: '/assets/clients/logo-2023-white (1).svg' },
-    { name: 'Look', logo: '/assets/clients/logo-look.svg', instagram: 'https://www.instagram.com/look.restobar.md/' },
-    { name: 'Head', logo: '/assets/clients/logo_head.svg' },
-    { name: 'Nani', logo: '/assets/clients/nani.svg', instagram: 'https://www.instagram.com/fabrica.nani/' },
-    { name: 'Piesa Ta', logo: '/assets/clients/piesa ta.svg', instagram: 'https://www.instagram.com/piesata.md/' },
-    { name: 'Profimax', logo: '/assets/clients/profimax.svg' },
-    { name: 'Radler', logo: '/assets/clients/radler.svg', instagram: 'https://www.instagram.com/radlermd/' },
-    { name: 'Ritzy', logo: '/assets/clients/ritzy.svg', instagram: 'https://www.instagram.com/ritzy_gifts/' },
-    { name: 'Salat', logo: '/assets/clients/salat.svg', instagram: 'https://www.instagram.com/salat.restaurant/' },
-    { name: 'Smart Sover', logo: '/assets/clients/smart sover.svg' },
-    { name: 'Viva Tur', logo: '/assets/clients/viva tur.svg', instagram: 'https://www.instagram.com/vivatour.md/' },
-    { name: 'WGB', logo: '/assets/clients/wgb.svg', instagram: 'https://www.instagram.com/wbg.contabilitate/' },
-    { name: 'CDI', logo: '/assets/clients/cdi.svg', instagram: 'https://www.instagram.com/cdihomedesign/' }
+    { name: 'Colina Verde', logo: getAssetPath('/assets/clients/4 colina.svg'), instagram: 'https://www.instagram.com/colina_verde_residence/' },
+    { name: 'Caviar', logo: getAssetPath('/assets/clients/Caviar.svg'), instagram: 'https://www.instagram.com/caviar.md/' },
+    { name: 'Finch', logo: getAssetPath('/assets/clients/Finch logo+bird vector (1).svg'), instagram: 'https://www.instagram.com/finch_beer/' },
+    { name: 'Aquatoria', logo: getAssetPath('/assets/clients/aquatoria.svg') },
+    { name: 'Ciao Cacao', logo: getAssetPath('/assets/clients/ciao cacao.svg'), instagram: 'https://www.instagram.com/ciaocacao.md/' },
+    { name: 'Claro', logo: getAssetPath('/assets/clients/claro.svg'), instagram: 'https://www.instagram.com/claro_md/' },
+    { name: 'Connect', logo: getAssetPath('/assets/clients/connect.svg') },
+    { name: 'Dinotte', logo: getAssetPath('/assets/clients/dinotte.svg'), instagram: 'https://www.instagram.com/dinotte.sleepshop.premium/' },
+    { name: 'Element Still', logo: getAssetPath('/assets/clients/element still.svg'), instagram: 'https://www.instagram.com/elementstil.md/' },
+    { name: 'Epil Bar', logo: getAssetPath('/assets/clients/epil bar.svg'), instagram: 'https://www.instagram.com/epilbarmd/' },
+    { name: 'Family Market', logo: getAssetPath('/assets/clients/family market.svg'), instagram: 'https://www.instagram.com/family_market.md/' },
+    { name: 'Getmancar', logo: getAssetPath('/assets/clients/getmancar.svg'), instagram: 'https://www.instagram.com/getmancar_md/' },
+    { name: 'Golban Trade', logo: getAssetPath('/assets/clients/golban trade.svg'), instagram: 'https://www.instagram.com/golbantradeconstruct/' },
+    { name: 'Heel', logo: getAssetPath('/assets/clients/heel.svg'), instagram: 'https://www.instagram.com/heel.md/' },
+    { name: 'Kerashop', logo: getAssetPath('/assets/clients/kerashop.svg'), instagram: 'https://www.instagram.com/kerashoppro.md/' },
+    { name: 'Kozel', logo: getAssetPath('/assets/clients/kozel.svg'), instagram: 'https://www.instagram.com/kozelbeer/' },
+    { name: 'JBL', logo: getAssetPath('/assets/clients/logo-2023-white (1).svg') },
+    { name: 'Look', logo: getAssetPath('/assets/clients/logo-look.svg'), instagram: 'https://www.instagram.com/look.restobar.md/' },
+    { name: 'Head', logo: getAssetPath('/assets/clients/logo_head.svg') },
+    { name: 'Nani', logo: getAssetPath('/assets/clients/nani.svg'), instagram: 'https://www.instagram.com/fabrica.nani/' },
+    { name: 'Piesa Ta', logo: getAssetPath('/assets/clients/piesa ta.svg'), instagram: 'https://www.instagram.com/piesata.md/' },
+    { name: 'Profimax', logo: getAssetPath('/assets/clients/profimax.svg') },
+    { name: 'Radler', logo: getAssetPath('/assets/clients/radler.svg'), instagram: 'https://www.instagram.com/radlermd/' },
+    { name: 'Ritzy', logo: getAssetPath('/assets/clients/ritzy.svg'), instagram: 'https://www.instagram.com/ritzy_gifts/' },
+    { name: 'Salat', logo: getAssetPath('/assets/clients/salat.svg'), instagram: 'https://www.instagram.com/salat.restaurant/' },
+    { name: 'Smart Sover', logo: getAssetPath('/assets/clients/smart sover.svg') },
+    { name: 'Viva Tur', logo: getAssetPath('/assets/clients/viva tur.svg'), instagram: 'https://www.instagram.com/vivatour.md/' },
+    { name: 'WGB', logo: getAssetPath('/assets/clients/wgb.svg'), instagram: 'https://www.instagram.com/wbg.contabilitate/' },
+    { name: 'CDI', logo: getAssetPath('/assets/clients/cdi.svg'), instagram: 'https://www.instagram.com/cdihomedesign/' }
   ];
 
   const handlePrevTestimonial = () => {

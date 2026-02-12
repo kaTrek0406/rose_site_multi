@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { trackEvent } from '../../utils/tracking';
+import { getAssetPath } from '../../utils/assets';
 import './Services.css';
 
 const Services = () => {
@@ -39,32 +40,32 @@ const Services = () => {
 
   const services = [
     {
-      icon: '/assets/services/smm.webp',
+      icon: getAssetPath('/assets/services/smm.webp'),
       titleKey: 'services.smm.title',
       descriptionKey: 'services.smm.description'
     },
     {
-      icon: '/assets/services/design.webp',
+      icon: getAssetPath('/assets/services/design.webp'),
       titleKey: 'services.design.title',
       descriptionKey: 'services.design.description'
     },
     {
-      icon: '/assets/services/photo.webp',
+      icon: getAssetPath('/assets/services/photo.webp'),
       titleKey: 'services.photo.title',
       descriptionKey: 'services.photo.description'
     },
     {
-      icon: '/assets/services/target.webp',
+      icon: getAssetPath('/assets/services/target.webp'),
       titleKey: 'services.target.title',
       descriptionKey: 'services.target.description'
     },
     {
-      icon: '/assets/services/video.webp',
+      icon: getAssetPath('/assets/services/video.webp'),
       titleKey: 'services.video.title',
       descriptionKey: 'services.video.description'
     },
     {
-      icon: '/assets/services/ilustration.webp',
+      icon: getAssetPath('/assets/services/ilustration.webp'),
       titleKey: 'services.illustration.title',
       descriptionKey: 'services.illustration.description'
     }

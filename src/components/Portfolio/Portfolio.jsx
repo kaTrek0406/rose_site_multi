@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { trackEvent } from '../../utils/tracking';
 import { FaInstagram } from 'react-icons/fa';
+import { getAssetPath } from '../../utils/assets';
 import portfolioData from '../../data/portfolioData.json';
 import './Portfolio.css';
 
@@ -25,11 +26,11 @@ const Portfolio = () => {
   const allPortfolioItems = useMemo(() =>
     portfolioData.portfolioItems.map(item => ({
       id: item.id,
-      image: item.mainImage,
-      gallery: item.gallery,
+      image: getAssetPath(item.mainImage),
+      gallery: item.gallery ? item.gallery.map(getAssetPath) : [],
       instagram: item.instagram
     }))
-  , []);
+    , []);
 
   // ====== СТЕЙТЫ ======
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
@@ -159,7 +160,7 @@ const Portfolio = () => {
 
     const nodes = cardRefs.current.filter(Boolean);
     nodes.forEach((node) => io.observe(node));
-    
+
     return () => {
       nodes.forEach((node) => io.unobserve(node));
       io.disconnect();
@@ -453,7 +454,7 @@ const Portfolio = () => {
             <button className="modal-nav modal-prev" onClick={showPrev} aria-label="Previous">‹</button>
             <button className="modal-nav modal-next" onClick={showNext} aria-label="Next">›</button>
 
-            <div 
+            <div
               className="modal-image"
               onTouchStart={handleModalTouchStart}
               onTouchEnd={handleModalTouchEnd}
