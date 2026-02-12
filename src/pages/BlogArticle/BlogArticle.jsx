@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { FaClock, FaArrowLeft, FaCalendar, FaTag, FaTelegram, FaWhatsapp, FaFacebook } from 'react-icons/fa';
+import { FaClock, FaArrowLeft, FaCalendar, FaTag, FaTelegram, FaWhatsapp, FaFacebook, FaArrowRight } from 'react-icons/fa';
 import { blogArticlesData } from '../Blog/Blog';
 import './BlogArticle.css';
 
