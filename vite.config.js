@@ -24,6 +24,11 @@ export default defineConfig({
           /exit$/,
           // Сохраняем анимации
           'spin',
+          // Blog classes
+          /^blog-/,
+          /^ba-/,
+          /^featured-/,
+          'read-more',
         ],
         deep: [/^fade/, /^slide/],
       },
